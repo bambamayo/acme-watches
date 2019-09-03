@@ -1,0 +1,87 @@
+.header {
+  height: 8rem;
+  width: 100%;
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  border-bottom: 1.5px solid #000;
+}
+
+.header nav {
+  height: 100%;
+}
+
+.headerNavList {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  padding: 0 7rem;
+}
+
+.headerNavListItem {
+  font-size: 1.8rem;
+  letter-spacing: 0.1rem;
+}
+
+.headerNavListItem:not(:first-child) {
+  font-weight: 700;
+}
+
+.headerNavListItem:not(:last-child) {
+  margin-right: 3rem;
+  display: inline-block;
+}
+
+.headerNavListItem:nth-child(3) {
+  margin: 0 auto;
+
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.headerNavListLink span {
+  display: inline-block;
+  margin-left: 0.5rem;
+}
+
+.headerNavListLink {
+  border-bottom: 1px solid transparent;
+  transition: 0.2s ease-in all;
+  padding-bottom: 0.5rem;
+}
+
+.headerNavListLink:hover {
+  color: #333;
+  border-bottom: 1px solid #333;
+}
+
+.headerSearchInput {
+  border: 1px solid #000;
+  outline: none;
+  border-radius: 5rem;
+  padding: 1rem 3rem;
+  background-color: white;
+  width: 80%;
+  font-size: 1.6rem;
+}
+
+.headerSearchInput::placeholder {
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: #000;
+  letter-spacing: 0.1rem;
+  font-family: "Raleway", sans-serif;
+}
+
+input[type="search"]:focus {
+  width: 90%;
+}
+
+.headerSearchIcon {
+  margin: 1rem 0 0 -3rem;
+  cursor: pointer;
+}

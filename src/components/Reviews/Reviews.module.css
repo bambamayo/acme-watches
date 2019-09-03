@@ -1,0 +1,11 @@
+.reviews {
+  padding: 12rem 0;
+  background-color: #f7f7f7;
+}
+
+.reviewsList {
+  max-width: 114rem;
+  margin: 4rem auto 0 auto;
+  display: flex;
+  justify-content: space-between;
+}

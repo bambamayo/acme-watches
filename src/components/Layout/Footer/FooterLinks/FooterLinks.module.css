@@ -1,0 +1,17 @@
+.footerLinks {
+  display: flex;
+  align-self: center;
+}
+
+.footerLinks li {
+  font-size: 1.8rem;
+}
+
+.footerLinks li a {
+  padding: 1rem;
+  border: 0.1rem solid transparent;
+}
+
+.footerLinks li a:hover {
+  color: #333;
+}

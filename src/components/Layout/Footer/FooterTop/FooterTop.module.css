@@ -1,0 +1,19 @@
+.footerTopList {
+  margin-bottom: 3rem;
+}
+
+.footerListHeader {
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  font-weight: 700;
+}
+
+.footerListItems li {
+  font-size: 1.6rem;
+  letter-spacing: 0.1rem;
+  cursor: pointer;
+}
+
+.footerListItems li:not(:last-child) {
+  margin-bottom: 1rem;
+}
