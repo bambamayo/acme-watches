@@ -1,0 +1,70 @@
+.Shop {
+  margin-top: 8rem;
+  padding: 8rem 0;
+}
+
+.Shop h2 {
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+.SearchInputContainer {
+  margin-top: 2rem;
+}
+
+.ShopSearchInput {
+  display: block;
+  margin: 0 auto;
+  width: 30%;
+  border: 1px solid #000;
+  outline: none;
+  border-radius: 0.5rem;
+  padding: 1rem 3rem;
+  background-color: white;
+  font-size: 1.4rem;
+}
+
+.ShopItemsContainer {
+  max-width: 114rem;
+  margin: 4rem auto 0 auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.containerClass {
+  width: 26rem;
+  cursor: pointer;
+  margin-bottom: 10rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.productImage {
+  width: 100%;
+  height: 100%;
+}
+
+.addToCart {
+  padding: 1rem 2rem;
+  cursor: pointer;
+  font-size: 1.6rem;
+  background-color: transparent;
+  border-color: #333;
+  border-radius: 1rem;
+  transition: 0.3s ease-in all;
+  width: 50%;
+  margin: 1rem auto 0 auto;
+}
+
+.addToCart:disabled,
+.addToCart:disabled:hover {
+  background-color: #ff0000;
+  color: #000;
+  cursor: auto;
+}
+
+.addToCart:hover {
+  background-color: #000;
+  color: #fff;
+}

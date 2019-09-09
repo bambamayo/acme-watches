@@ -144,7 +144,7 @@ const watches = [
     onSale: false
   },
   {
-    name: "mxtm",
+    name: "mxtm x",
     category: "female",
     price: 50000,
     id: 12,
@@ -170,7 +170,7 @@ const watches = [
     onSale: false
   },
   {
-    name: "balck",
+    name: "balck c",
     category: "female",
     price: 50000,
     id: 14,
@@ -183,7 +183,7 @@ const watches = [
     onSale: false
   },
   {
-    name: "reblack",
+    name: "reblack x",
     category: "male",
     price: 40500,
     id: 15,
@@ -196,7 +196,7 @@ const watches = [
     onSale: false
   },
   {
-    name: "xterria",
+    name: "xterria x",
     category: "female",
     price: 60000,
     id: 16,
@@ -209,7 +209,7 @@ const watches = [
     onSale: false
   },
   {
-    name: "pipers",
+    name: "pipers x",
     category: "male",
     price: 40000,
     id: 17,
@@ -248,7 +248,7 @@ const watches = [
     onSale: false
   },
   {
-    name: "cullels",
+    name: "cullels c",
     category: "female",
     price: 35000,
     id: 20,
@@ -287,7 +287,7 @@ const watches = [
     onSale: false
   },
   {
-    name: "frisks",
+    name: "frisks d",
     category: "male",
     price: 43000,
     id: 23,
