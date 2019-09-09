@@ -4,6 +4,7 @@ import Home from "./Home/Home";
 import Shop from "./Shop/Shop";
 import Cart from "./Cart/Cart";
 import { Route, Switch } from "react-router-dom";
+import Checkout from "./Checkout/Checkout";
 
 class App extends Component {
   render() {
@@ -14,6 +15,7 @@ class App extends Component {
             <Route exact path="/" component={Home} />
             <Route path="/shop" component={Shop} />
             <Route path="/cart" component={Cart} />
+            <Route path="/checkout" component={Checkout} />
           </Switch>
         </Layout>
       </>

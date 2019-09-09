@@ -11,6 +11,7 @@
 
 .containerClass {
   width: 26rem;
+  cursor: pointer;
 }
 
 .productImage {

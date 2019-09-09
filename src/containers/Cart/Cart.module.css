@@ -1,0 +1,111 @@
+.Cart {
+  margin-top: 8rem;
+  padding: 6rem 0 10rem 0;
+}
+
+.Cart h2 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.emptyCartTextMain {
+  font-size: 2rem;
+  text-align: center;
+}
+.emptyCartTextSub {
+  margin-top: 1rem;
+  font-size: 1.6rem;
+  text-align: center;
+}
+
+.emptyCartTextSub a {
+  text-decoration: underline;
+}
+
+.CartListUL {
+  margin-top: 3rem;
+}
+
+.CartList {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.CartImage {
+  width: 9rem;
+}
+
+.CartListItem {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.6rem;
+  margin-bottom: 2rem;
+}
+
+.CartListItem span {
+  display: inline-block;
+  align-self: center;
+  flex-basis: 20%;
+
+  text-align: center;
+}
+
+.CartAmount span:not(:nth-child(2)) {
+  cursor: pointer;
+  font-size: 2rem;
+}
+
+.CartAmount span:not(:last-child) {
+  margin-right: 2rem;
+}
+
+.CartAmount {
+  flex-basis: 10rem;
+  text-align: center;
+}
+
+.TotalPriceContainer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.TotalPrice {
+  font-size: 1.6rem;
+  margin: 2rem 2rem 0 0;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  display: inline-block;
+  padding: 2rem 0;
+}
+
+.CartOptions {
+  display: flex;
+  margin-top: 2rem;
+  justify-content: flex-end;
+}
+
+.CartOptions a {
+  display: inline-block;
+  color: #fff;
+}
+
+.CartOptions > * {
+  padding: 1rem 2rem;
+  font-size: 1.6rem;
+  border-color: transparent;
+  background-color: #000;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  color: #fff;
+}
+
+.CartOptions button {
+  margin-right: 1.3rem;
+  background-color: #ff0000;
+}
+
+.DeleteItem {
+  cursor: pointer;
+  color: #ff0000;
+}

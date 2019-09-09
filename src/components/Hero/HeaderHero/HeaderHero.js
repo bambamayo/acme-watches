@@ -2,6 +2,7 @@ import React from "react";
 import Hero from "../Hero";
 import Text from "../../UI/Text/Text";
 import classes from "./HeaderHero.module.css";
+import {Link } from "react-router-dom"
 
 const HeaderHero = () => {
   return (
@@ -12,9 +13,9 @@ const HeaderHero = () => {
           <span className={classes.heroTextSub}>for the gentlemen</span>
           <span className={classes.heroTextSub}>and classy ladies</span>
         </Text>
-        <a className={classes.callToAction} href="/">
+        <Link className={classes.callToAction} to="/shop">
           Shop now
-        </a>
+        </Link>
       </div>
       <div className={classes.scrollDown}>
         <Text classname={classes.arrowDown}>&darr;</Text>

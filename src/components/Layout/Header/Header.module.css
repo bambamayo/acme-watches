@@ -7,6 +7,7 @@
   left: 0;
   z-index: 5;
   border-bottom: 1.5px solid #000;
+  transition: 0.3s ease-in all;
 }
 
 .header nav {
@@ -21,7 +22,7 @@
 }
 
 .headerNavListItem {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   letter-spacing: 0.1rem;
 }
 
@@ -34,13 +35,8 @@
   display: inline-block;
 }
 
-.headerNavListItem:nth-child(3) {
-  margin: 0 auto;
-
-  width: 40%;
-  display: flex;
-  justify-content: center;
-  position: relative;
+.headerNavListItem:last-child {
+  margin-left: auto;
 }
 
 .headerNavListLink span {
@@ -57,31 +53,4 @@
 .headerNavListLink:hover {
   color: #333;
   border-bottom: 1px solid #333;
-}
-
-.headerSearchInput {
-  border: 1px solid #000;
-  outline: none;
-  border-radius: 5rem;
-  padding: 1rem 3rem;
-  background-color: white;
-  width: 80%;
-  font-size: 1.6rem;
-}
-
-.headerSearchInput::placeholder {
-  font-size: 1.6rem;
-  font-weight: 500;
-  color: #000;
-  letter-spacing: 0.1rem;
-  font-family: "Raleway", sans-serif;
-}
-
-input[type="search"]:focus {
-  width: 90%;
-}
-
-.headerSearchIcon {
-  margin: 1rem 0 0 -3rem;
-  cursor: pointer;
 }

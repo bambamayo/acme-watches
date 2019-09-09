@@ -16,16 +16,6 @@
   margin-bottom: 1rem;
 }
 
-.addtocart {
-  padding: 1rem 2rem;
-  font-size: 1.7rem;
-  background-color: #fff;
-  cursor: pointer;
-  box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.5);
-
-  width: 100%;
-}
-
 /* .addedtocart {
   background-color: #0000ff;
   color: #fff;

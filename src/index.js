@@ -3,14 +3,10 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import { BrowserRouter } from "react-router-dom";
 import {
-  faUser,
-  faUserPlus,
   faShoppingCart,
   faSearch,
   faLongArrowAltDown,
-  faMinus,
-  faPlus,
-  faArrowRight
+  faTrashAlt
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebookF,
@@ -21,6 +17,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import App from "./containers/App";
+import { ProductProvider } from "./context";
 
 library.add(
   faFacebookF,
@@ -28,20 +25,22 @@ library.add(
   faInstagram,
   faLinkedin,
   faYoutube,
-  faUser,
-  faUserPlus,
+  faTrashAlt,
   faShoppingCart,
   faSearch,
-  faLongArrowAltDown,
-  faMinus,
-  faPlus,
-  faArrowRight
+  faLongArrowAltDown
 );
 
 const app = (
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>
+  <ProductProvider>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </ProductProvider>
 );
 
 ReactDOM.render(app, document.getElementById("root"));
+
+// if (module.hot) {
+//   module.hot.accept();
+// }
