@@ -1,6 +1,6 @@
 import React from "react";
 import { ProductConsumer } from "../../context";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import Icon from "../UI/Icon/Icon";
 
 const Cart = () => {
@@ -16,7 +16,9 @@ const Cart = () => {
                   Your cart is currently empty
                 </p>
                 <p className="cart-empty-text--sub">
-                  visit <Link to="/shop">shop </Link> to add items to cart
+                  visit <NavLink to="/shop/men"> men shop </NavLink> or{" "}
+                  <NavLink to="/shop/women"> women shop </NavLink>to add items
+                  to cart
                 </p>
               </div>
             );
@@ -34,7 +36,9 @@ const Cart = () => {
                     Your cart is currently empty
                   </p>
                   <p className="cart-empty-text--sub">
-                    visit <Link to="/shop">shop </Link> to add items to cart
+                    visit <NavLink to="/shop/men"> men shop </NavLink> or{" "}
+                    <NavLink to="/shop/women"> women shop </NavLink>to add items
+                    to cart
                   </p>
                 </div>
               );
@@ -109,7 +113,7 @@ const Cart = () => {
                   <div>
                     <div className="cart__total-price-container">
                       <p className="cart__total-price">
-                        Total price : &#8358;
+                        Total amount : &#8358;
                         <ProductConsumer>
                           {consumer => {
                             let totalSum = Object.keys(consumer.products)
@@ -133,7 +137,7 @@ const Cart = () => {
                         Clear cart <Icon type="trash-alt" />
                       </button>
 
-                      <Link to="/checkout">Proceed to checkout page</Link>
+                      <NavLink to="/ordersummary">Proceed to checkout</NavLink>
                     </div>
                   </div>
                 </div>

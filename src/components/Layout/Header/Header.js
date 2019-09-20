@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Icon from "../../UI/Icon/Icon";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { ProductConsumer } from "../../../context";
 
 class Header extends Component {
@@ -35,30 +35,46 @@ class Header extends Component {
         <nav className="header__nav">
           <ul className="navList">
             <li className="navList-item">
-              <Link className="navList-item-link" to="/">
+              <NavLink
+                className="navList-item-link"
+                activeClassName="navList-item-link--active"
+                to="/"
+              >
                 ACME
-              </Link>
+              </NavLink>
             </li>
 
             <li className="navList-item">
-              <Link className="navList-item-link" to="/shop/men">
+              <NavLink
+                className="navList-item-link"
+                activeClassName="navList-item-link--active"
+                to="/shop/men"
+              >
                 Shop men
-              </Link>
+              </NavLink>
             </li>
             <li className="navList-item">
-              <Link className="navList-item-link" to="/shop/women">
+              <NavLink
+                className="navList-item-link"
+                activeClassName="navList-item-link--active"
+                to="/shop/women"
+              >
                 Shop women
-              </Link>
+              </NavLink>
             </li>
             <ProductConsumer>
               {consumer => {
                 return (
                   <li className="navList-item">
-                    <Link className="navList-item-link" to="/cart">
+                    <NavLink
+                      className="navList-item-link"
+                      activeClassName="navList-item-link--active"
+                      to="/cart"
+                    >
                       <Icon type="shopping-cart" />
                       <span>{consumer.cartNumber}</span>
                       <span>Cart</span>
-                    </Link>
+                    </NavLink>
                   </li>
                 );
               }}
