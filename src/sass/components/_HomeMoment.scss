@@ -1,0 +1,47 @@
+.moment {
+  display: flex;
+  width: 100rem;
+  margin: 5rem auto;
+  position: relative;
+  justify-content: space-between;
+
+  &__container {
+    flex-basis: 45%;
+  }
+
+  &__link {
+    display: block;
+    background-color: red;
+    height: 90%;
+  }
+
+  &__imageLink {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__details {
+    margin-top: 3rem;
+
+    &-pri {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: 0.3rem;
+    }
+
+    &-sec {
+      width: 50%;
+      padding: 1rem 2rem;
+      font-size: 2rem;
+      background-color: $color-white;
+      border: 0.2rem solid $color-black;
+      outline: none;
+      transition: 0.3s background-color, 0.3s color;
+
+      &:hover {
+        background-color: $color-black;
+        color: $color-white;
+      }
+    }
+  }
+}

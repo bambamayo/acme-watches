@@ -11,6 +11,7 @@ const Modal = props => {
           <Backdrop clicked={consumer.closeModalHandler}>
             <ModalDiv
               style={{
+                zIndex: "9",
                 transform: consumer.show
                   ? "translateY(0)"
                   : "translateY(-100vh)",
@@ -33,7 +34,7 @@ const ModalDiv = styled.div`
   width: 60%;
   cursor: auto;
   background-color: #fff;
-  z-index: 8;
+  z-index: 10;
   transition: 0.4s ease-in all;
   box-shadow: 1px 1px 1px #00000;
   // color: #ffffff;

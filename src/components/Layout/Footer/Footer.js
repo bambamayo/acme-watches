@@ -1,13 +1,12 @@
 import React from "react";
-import classes from "./Footer.module.css";
 
 import FooterTop from "./FooterTop/FooterTop";
 import FooterBottom from "./FooterBottom/FooterBottom";
 
 const Footer = () => {
   return (
-    <footer className={classes.footer}>
-      <div className={classes.footerTop}>
+    <footer className="footer">
+      <div className="footer__top">
         <FooterTop />
       </div>
       <FooterBottom />

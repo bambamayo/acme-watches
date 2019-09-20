@@ -1,0 +1,55 @@
+.hero {
+  height: 110vh;
+  position: relative;
+  background-image: url(../../assets/images/hero_use.jpg);
+  background-size: cover;
+  background-position: center;
+  z-index: 5;
+
+  &__text-container {
+    position: absolute;
+    top: 40%;
+    left: 6rem;
+    color: #fff;
+    animation: slideInRight 0.5s ease-in 0.5s backwards;
+  }
+
+  &__text {
+    &--sub {
+      display: block;
+      font-size: 3rem;
+      letter-spacing: 0.2rem;
+      margin-top: -1rem;
+    }
+  }
+
+  &__call-to-action {
+    color: $color-white;
+    display: inline-block;
+    margin-top: 2rem;
+    font-size: 2.3rem;
+    padding: 1rem 3rem;
+    // border: 0.2rem solid $color-black;
+    background-color: $color-blue-light;
+
+    &:hover {
+      transform: translateY(-0.3rem);
+    }
+
+    &:focus {
+      transform: translateY(-0.2rem);
+    }
+  }
+}
+
+.scroll {
+  position: absolute;
+  bottom: 2%;
+  left: 6rem;
+}
+
+.scroll--icon {
+  font-size: 5rem;
+  animation: arrowAnimate 0.5s ease-in infinite;
+  color: $color-white;
+}
