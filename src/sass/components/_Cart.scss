@@ -1,0 +1,128 @@
+.cart {
+  margin-top: 8rem;
+  padding: 6rem 0 10rem 0;
+
+  h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  &-empty-text {
+    &--main {
+      font-size: 2rem;
+      text-align: center;
+    }
+
+    &--sub {
+      margin-top: 1rem;
+      font-size: 1.6rem;
+      text-align: center;
+
+      & a {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__list {
+    width: 80%;
+    margin: 0 auto;
+
+    &-ul {
+      &-item {
+        display: flex;
+        justify-content: space-between;
+        font-size: 1.6rem;
+        margin-bottom: 1rem;
+
+        & span {
+          display: inline-block;
+          align-self: center;
+          text-align: center;
+
+          &:not(:nth-child(3)) {
+            flex-basis: 20%;
+          }
+
+          &:nth-child(3) {
+            flex-basis: 15%;
+          }
+        }
+
+        &-image {
+          width: 9rem;
+        }
+
+        &-amount {
+          text-align: center;
+          border: 0.1rem solid #000;
+
+          & button {
+            padding: 0.5rem;
+            border: none;
+            background-color: transparent;
+            cursor: pointer;
+
+            &:disabled {
+              cursor: not-allowed;
+            }
+
+            &:not(:nth-child(2)) {
+              font-size: 1.6rem;
+            }
+
+            &:not(:last-child) {
+              margin-right: 2rem;
+            }
+          }
+        }
+
+        &-delete {
+          cursor: pointer;
+          color: #ff0000;
+        }
+      }
+    }
+  }
+
+  &__total-price-container {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__total-price {
+    font-size: 1.6rem;
+    margin: 2rem 2rem 0 0;
+    border-top: 0.2rem solid $color-black;
+    border-bottom: 0.2rem solid $color-black;
+    display: inline-block;
+    padding: 2rem 0;
+  }
+
+  &__options {
+    display: flex;
+    margin-top: 2rem;
+    justify-content: flex-end;
+
+    & a {
+      display: inline-block;
+      color: #fff;
+    }
+
+    & > * {
+      padding: 1rem 2rem;
+      font-size: 1.6rem;
+      border-color: transparent;
+      background-color: $color-black;
+      cursor: pointer;
+      border-radius: 0.5rem;
+      color: $color-white;
+    }
+
+    & button {
+      margin-right: 1.3rem;
+      background-color: #ff0000;
+    }
+  }
+}

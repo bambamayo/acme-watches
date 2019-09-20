@@ -1,32 +1,83 @@
 import React from "react";
-import classes from "./Reviews.module.css";
-import TextHeader from "../UI/Text/TextHeader/TextHeader";
-import Review from "./Review/Review";
-import cusImage from "../../assets/images/hero_use.jpg";
+
+import { ProductConsumer } from "../../context";
 
 const Reviews = () => {
   return (
-    <section className={classes.reviews}>
-      <TextHeader>We leave our customers satisfied</TextHeader>
-      <div className={classes.reviewsList}>
-        <Review
-          customerName="uzor okoli"
-          customerImage={cusImage}
-          customerReview="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit inventore maxime quae voluptatibus quia iusto quo culpa nam ad beatae deleniti, illum adipisci vel recusandae cumque architecto odit repellat."
-          location="Lagos state, Nigeria"
-        />
-        <Review
-          customerName="hassan uzari"
-          customerImage={cusImage}
-          customerReview="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro doloribus nesciunt dolores laboriosam corporis sed quo minima! Porro necessitatibus vero exercitationem dicta aspernatur, pariatur suscipit ipsum aliquid, culpa quidem dolor"
-          location="Oyo state, Nigeria"
-        />
-        <Review
-          customerName="seyi ajanokun"
-          customerImage={cusImage}
-          customerReview="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nemo dicta esse est voluptas. Tempora esse velit, nostrum porro, recusandae dolorum ipsa repellendus neque veritatis unde expedita natus necessitatibus voluptas mollitia!"
-          location="Anambra state, Nigeria"
-        />
+    <section className="reviews">
+      <h2 className="section-header">What our customers are saying about us</h2>
+      <div className="reviews__images-container">
+        <ProductConsumer>
+          {consumer => {
+            let reviewImages = Object.keys(consumer.reviews).map(productKey => {
+              let details = consumer.reviews[productKey];
+              if (consumer.customerReview === null) {
+                return (
+                  <img
+                    style={{
+                      opacity:
+                        consumer.defaultReview.customerImage ===
+                        details.customerImage
+                          ? "1"
+                          : "0.5"
+                    }}
+                    onClick={() =>
+                      consumer.showCustomerReviewHandler(productKey)
+                    }
+                    className="reviews__customer-image"
+                    src={details.customerImage}
+                    alt="customer thumbnail"
+                    key={productKey}
+                  />
+                );
+              } else {
+                return (
+                  <img
+                    style={{
+                      opacity: consumer.customerReview === productKey ? 1 : 0.5
+                    }}
+                    onClick={() =>
+                      consumer.showCustomerReviewHandler(productKey)
+                    }
+                    className="reviews__customer-image"
+                    src={details.customerImage}
+                    alt="customer thumbnail"
+                    key={productKey}
+                  />
+                );
+              }
+            });
+            return reviewImages;
+          }}
+        </ProductConsumer>
+      </div>
+      <div className="review__message">
+        <ProductConsumer>
+          {consumer => {
+            if (consumer.customerReview === null) {
+              return (
+                <div
+                  className="review__message-container"
+                  style={{ zIndex: "3" }}
+                >
+                  <h3>{consumer.defaultReview.customerName}</h3>
+                  <p>{consumer.defaultReview.review}</p>
+                  <p>{`${consumer.defaultReview.location.city}, ${consumer.defaultReview.location.country}`}</p>
+                </div>
+              );
+            } else {
+              return (
+                <div className="review__message-container">
+                  <h3>
+                    {consumer.reviews[consumer.customerReview].customerName}
+                  </h3>
+                  <p>{consumer.reviews[consumer.customerReview].review}</p>
+                  <p>{`${consumer.reviews[consumer.customerReview].location.city}, ${consumer.reviews[consumer.customerReview].location.country}`}</p>
+                </div>
+              );
+            }
+          }}
+        </ProductConsumer>
       </div>
     </section>
   );

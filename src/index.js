@@ -1,6 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
 import { BrowserRouter } from "react-router-dom";
 import {
   faShoppingCart,
@@ -18,7 +17,7 @@ import {
 import { library } from "@fortawesome/fontawesome-svg-core";
 import App from "./containers/App";
 import { ProductProvider } from "./context";
-
+import "./sass/main.scss";
 library.add(
   faFacebookF,
   faTwitter,
@@ -41,6 +40,6 @@ const app = (
 
 ReactDOM.render(app, document.getElementById("root"));
 
-// if (module.hot) {
-//   module.hot.accept();
-// }
+if (module.hot) {
+  module.hot.accept();
+}

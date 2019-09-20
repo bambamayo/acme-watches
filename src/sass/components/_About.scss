@@ -1,0 +1,59 @@
+.about {
+  padding: 15rem 0 25rem 0;
+  &__container {
+    max-width: 114rem;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__text-container {
+    flex-basis: 45%;
+  }
+
+  &__text {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    letter-spacing: 0.1rem;
+  }
+
+  &__images {
+    position: relative;
+    flex-basis: 45%;
+  }
+
+  &__image {
+    width: 55%;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.4);
+    border-radius: 0.2rem;
+    position: absolute;
+    z-index: 5;
+    transition: all 0.2s;
+    outline-offset: 2rem;
+
+    &--one {
+      left: 0;
+      top: -2rem;
+    }
+
+    &--two {
+      right: 0;
+      top: 2rem;
+    }
+
+    &--three {
+      left: 20%;
+      top: 10rem;
+    }
+
+    &:hover {
+      outline: 1.5rem solid #2998ff;
+      transform: scale(1.05) translateY(-0.5rem);
+      box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.5);
+      z-index: 6;
+    }
+  }
+
+  &__images:hover &__image:not(:hover) {
+    transform: scale(0.9);
+  }
+}

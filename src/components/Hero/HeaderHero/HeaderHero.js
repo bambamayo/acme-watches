@@ -1,24 +1,27 @@
 import React from "react";
 import Hero from "../Hero";
-import Text from "../../UI/Text/Text";
-import classes from "./HeaderHero.module.css";
-import {Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 
 const HeaderHero = () => {
   return (
-    <Hero classname={classes.heroContainer}>
-      <div className={classes.heroTextContainer}>
-        <Text classname={classes.heroText}>
-          <span className={classes.heroTextSub}>Premium wristwatches</span>
-          <span className={classes.heroTextSub}>for the gentlemen</span>
-          <span className={classes.heroTextSub}>and classy ladies</span>
-        </Text>
-        <Link className={classes.callToAction} to="/shop">
-          Shop now
-        </Link>
+    <Hero classname="hero">
+      <div className="hero__text-container">
+        <p className="hero__text">
+          <span className="hero__text--sub">Premium wristwatches</span>
+          <span className="hero__text--sub">for the gentlemen</span>
+          <span className="hero__text--sub">and classy ladies</span>
+        </p>
+        <div>
+          <Link className="hero__call-to-action m-r-2" to="/shop/men">
+            Shop men
+          </Link>
+          <Link className="hero__call-to-action" to="/shop/women">
+            Shop women
+          </Link>
+        </div>
       </div>
-      <div className={classes.scrollDown}>
-        <Text classname={classes.arrowDown}>&darr;</Text>
+      <div className="scroll">
+        <p className="scroll--icon">&darr;</p>
       </div>
     </Hero>
   );

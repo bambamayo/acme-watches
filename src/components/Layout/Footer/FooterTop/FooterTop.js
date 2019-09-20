@@ -1,38 +1,35 @@
 import React from "react";
-import UnorderedList from "../../../UnorderedList/UnorderedList";
-import List from "../../../UnorderedList/List/List";
 import FooterLinks from "../FooterLinks/FooterLinks";
-import classes from "./FooterTop.module.css";
 
 const FooterTop = () => {
   return (
     <>
-      <div className={classes.footerList}>
-        <h3 className={classes.footerListHeader}>About Acme</h3>
-        <UnorderedList classname={classes.footerListItems}>
-          <List>About us</List>
-          <List>Why choose acme</List>
-          <List>Our manifesto</List>
-          <List>Our manifesto</List>
-          <List>FAQ</List>
-          <List>Contact us</List>
-        </UnorderedList>
+      <div className="footer__top-list">
+        <h3 className="footer__top-list-header">About Acme</h3>
+        <ul className="footer__top-list-items">
+          <li>About us</li>
+          <li>Why choose acme</li>
+          <li>Our manifesto</li>
+          <li>Our values</li>
+          <li>FAQ</li>
+          <li>Contact us</li>
+        </ul>
       </div>
-      <div className={classes.footerList}>
-        <h3 className={classes.footerListHeader}>Buying acme</h3>
-        <UnorderedList classname={classes.footerListItems}>
-          <List>Buyer safety</List>
-          <List>Delivery</List>
-          <List>Acme return policy</List>
-        </UnorderedList>
+      <div className="footer__top-list">
+        <h3 className="footer__top-list-header">Buying acme</h3>
+        <ul className="footer__top-list-items">
+          <li>Buyer safety</li>
+          <li>Delivery</li>
+          <li>Acme return policy</li>
+        </ul>
       </div>
-      <div className={classes.footerList}>
-        <h3 className={classes.footerListHeader}>Payment</h3>
-        <UnorderedList classname={classes.footerListItems}>
-          <List>Verve</List>
-          <List>Visa</List>
-          <List>Mastercard</List>
-        </UnorderedList>
+      <div className="footer__top-list">
+        <h3 className="footer__top-list-header">Payment</h3>
+        <ul className="footer__top-list-items">
+          <li>Verve</li>
+          <li>Visa</li>
+          <li>Mastercard</li>
+        </ul>
       </div>
       <FooterLinks />
     </>

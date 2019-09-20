@@ -1,21 +1,51 @@
 import React, { Component } from "react";
-import watches from "./watches";
+
+import reviews from "./reviews";
+import { defaultReview } from "./reviews";
+import axios from "axios";
 
 const ProductContext = React.createContext();
 
 class ProductProvider extends Component {
   state = {
-    products: [...watches],
+    products: null,
     cartNumber: 0,
     show: false,
     productInModal: null,
-    totalPrice: 0
+    totalPrice: 0,
+    reviews: { ...reviews },
+    customerReview: null,
+    defaultReview: defaultReview
+  };
+
+  componentDidMount() {
+    axios
+      .get("https://acme-project-930ec.firebaseio.com/products.json")
+      .then(response => {
+        this.setState({
+          products: response.data
+        });
+      })
+      .catch(error => (
+        <h2>Cannot load products at this moment, due to {error}</h2>
+      ));
+  }
+
+  showCustomerReviewHandler = reviewId => {
+    const reviews = { ...this.state.reviews };
+    const customerReview = Object.keys(reviews).find(id => {
+      return id === reviewId;
+    });
+
+    this.setState({
+      customerReview
+    });
   };
 
   showModalHandler = productId => {
-    const watches = [...this.state.products];
-    const clickedWatch = watches.find(watch => {
-      return watch.id === productId;
+    const products = { ...this.state.products };
+    const clickedWatch = Object.keys(products).find(productKey => {
+      return productKey === productId;
     });
 
     this.setState({
@@ -31,70 +61,69 @@ class ProductProvider extends Component {
     });
   };
 
+  onClickModalHandler = () => {
+    this.setState({
+      show: true
+    });
+  };
+
   addToCartHandler = productId => {
     //Get watches and cart number from state
-    const watches = [...this.state.products];
+    const products = { ...this.state.products };
     let cartNumber = this.state.cartNumber;
     //Get the watch that was clicked from watches
-    const clickedWatch = watches.find(watch => {
-      return watch.id === productId;
+    const clickedWatch = Object.keys(products).find(productKey => {
+      return productKey === productId;
     });
     //Determine if it is available
-    if (clickedWatch.inCart) return;
+    if (products[clickedWatch].inCart) return;
     else {
       cartNumber = cartNumber + 1;
-      clickedWatch.count += 1;
-      clickedWatch.inCart = true;
+      products[clickedWatch].count += 1;
+      products[clickedWatch].inCart = true;
       //Update cartNumber
       this.setState({
-        products: watches,
+        products,
         cartNumber
       });
     }
   };
 
-  increaseCartCountHandler = id => {
-    const watches = [...this.state.products];
-    const watchInCart = watches.find(watch => {
-      return watch.id === id;
+  increaseCartCountHandler = productId => {
+    const products = { ...this.state.products };
+    const watchInCart = Object.keys(products).find(productKey => {
+      return productKey === productId;
     });
-    let newCount = watchInCart.count + 1;
-    watchInCart.count = newCount;
+    let newCount = products[watchInCart].count + 1;
+    products[watchInCart].count = newCount;
     this.setState({
-      products: watches
+      products
     });
   };
 
-  decreaseCartCountHandler = id => {
-    const watches = [...this.state.products];
-    let cartNumber = this.state.cartNumber;
-    const watchInCart = watches.find(watch => {
-      return watch.id === id;
+  decreaseCartCountHandler = productId => {
+    const products = { ...this.state.products };
+    const watchInCart = Object.keys(products).find(productKey => {
+      return productKey === productId;
     });
-    let count = watchInCart.count;
+    let count = products[watchInCart].count;
     if (count > 0) {
       count = count - 1;
-      watchInCart.count = count;
+
+      products[watchInCart].count = count;
       this.setState(() => {
-        return { products: watches };
-      });
-    }
-    if (count < 1) {
-      watchInCart.inCart = false;
-      cartNumber -= 1;
-      this.setState(() => {
-        return { products: watches, cartNumber };
+        return { products };
       });
     }
   };
 
   clearItemsInCartHandler = () => {
-    const watches = [...this.state.products];
-    const modifiedProducts = watches.map(product => {
-      product.inCart = false;
-      product.count = 0;
+    const products = { ...this.state.products };
+    const modifiedProducts = Object.keys(products).map(productKey => {
+      products[productKey].inCart = false;
+      products[productKey].count = 0;
       return {
-        ...product
+        ...products[productKey]
       };
     });
     this.setState({
@@ -103,16 +132,20 @@ class ProductProvider extends Component {
     });
   };
 
-  deleteIndividualItemHandler = id => {
-    const watches = [...this.state.products];
+  deleteIndividualItemHandler = productId => {
+    const products = { ...this.state.products };
     let cartNumber = this.state.cartNumber;
-    const deletedWatch = watches.find(product => product.id === id);
-    deletedWatch.inCart = false;
-    deletedWatch.count = 0;
-    let newCartNumber = watches.filter(product => product.inCart === true);
+    const deletedWatch = Object.keys(products).find(
+      productKey => productKey === productId
+    );
+    products[deletedWatch].inCart = false;
+    products[deletedWatch].count = 0;
+    let newCartNumber = Object.keys(products).filter(
+      productKey => products[productKey].inCart === true
+    );
     cartNumber = newCartNumber.length;
     this.setState({
-      products: watches,
+      products,
       cartNumber
     });
   };
@@ -141,7 +174,10 @@ class ProductProvider extends Component {
           increaseCartCountHandler: this.increaseCartCountHandler,
           decreaseCartCountHandler: this.decreaseCartCountHandler,
           clearItemsInCartHandler: this.clearItemsInCartHandler,
-          deleteIndividualItemHandler: this.deleteIndividualItemHandler
+          deleteIndividualItemHandler: this.deleteIndividualItemHandler,
+          onClickModalHandler: this.onClickModalHandler,
+          showCustomerReviewHandler: this.showCustomerReviewHandler,
+          pushDataToFirebaseHandler: this.pushDataToFirebaseHandler
         }}
       >
         {this.props.children}

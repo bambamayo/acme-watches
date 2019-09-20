@@ -1,0 +1,44 @@
+.reviews {
+  padding: 12rem 0;
+  background-color: $color-grey;
+
+  &__images-container {
+    width: 70rem;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__customer-image {
+    width: 20rem;
+    height: 20rem;
+    border-radius: 100%;
+    cursor: pointer;
+    transition: 0.3s all;
+  }
+}
+
+.review__message {
+  width: 50rem;
+  margin: 4rem auto 0 auto;
+
+  &-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.5);
+    padding: 2rem;
+    transition: 1s all ease-in;
+
+    & h3 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    & p {
+      font-size: 1.6rem;
+      margin-bottom: 2rem;
+    }
+  }
+}
