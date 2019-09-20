@@ -40,6 +40,11 @@
         border-bottom: 1px solid transparent;
         transition: 0.2s ease-in all;
         padding-bottom: 0.5rem;
+        font-weight: 700;
+
+        &--active {
+          border-bottom: 1px solid $color-white;
+        }
 
         & span {
           display: inline-block;

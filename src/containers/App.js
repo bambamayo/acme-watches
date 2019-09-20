@@ -6,6 +6,7 @@ import Checkout from "../components/Checkout/Checkout";
 import ShopWomen from "../components/Shop/ShopWomen/ShopWomen";
 import ShopMen from "../components/Shop/ShopMen/ShopMen";
 import Cart from "../components/Cart/Cart";
+import OrderSummary from "../components/OrderSummary/OrderSummary";
 
 class App extends Component {
   render() {
@@ -18,6 +19,7 @@ class App extends Component {
             <Route path="/shop/women" component={ShopWomen} />
             <Route path="/cart" component={Cart} />
             <Route path="/checkout" component={Checkout} />
+            <Route path="/ordersummary" component={OrderSummary} />
           </Switch>
         </Layout>
       </>
