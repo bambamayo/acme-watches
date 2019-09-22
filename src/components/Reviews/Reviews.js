@@ -1,6 +1,7 @@
 import React from "react";
-
+import Img from "react-image";
 import { ProductConsumer } from "../../context";
+import Spinner from "../Spinner/Spinner";
 
 const Reviews = () => {
   return (
@@ -13,7 +14,7 @@ const Reviews = () => {
               let details = consumer.reviews[productKey];
               if (consumer.customerReview === null) {
                 return (
-                  <img
+                  <Img
                     style={{
                       opacity:
                         consumer.defaultReview.customerImage ===
@@ -28,11 +29,12 @@ const Reviews = () => {
                     src={details.customerImage}
                     alt="customer thumbnail"
                     key={productKey}
+                    loader={<Spinner />}
                   />
                 );
               } else {
                 return (
-                  <img
+                  <Img
                     style={{
                       opacity: consumer.customerReview === productKey ? 1 : 0.5
                     }}
@@ -43,6 +45,7 @@ const Reviews = () => {
                     src={details.customerImage}
                     alt="customer thumbnail"
                     key={productKey}
+                    loader={<Spinner />}
                   />
                 );
               }

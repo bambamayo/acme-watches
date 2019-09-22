@@ -2,8 +2,6 @@ import React from "react";
 import { ProductConsumer } from "../../context";
 import { NavLink } from "react-router-dom";
 import Icon from "../UI/Icon/Icon";
-import Spinner from "../Spinner/Spinner";
-import Img from "react-image";
 
 const Cart = () => {
   return (
@@ -61,11 +59,10 @@ const Cart = () => {
                                 key={productKey}
                                 className="cart__list-ul-item"
                               >
-                                <Img
+                                <img
                                   src={details.imageUrl}
                                   alt={details.name}
                                   className="cart__list-ul-item-image"
-                                  loader={<Spinner />}
                                 />
                                 {/* <img
                                   src={details.imageUrl}
