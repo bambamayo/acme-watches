@@ -3,7 +3,9 @@ import ProductContainer from "../../ProductContainer/ProductContainer";
 import { ProductConsumer } from "../../../context";
 import ProductDetails from "../../ProductDetails/ProductDetails";
 import Modal from "../../UI/Modal/Modal";
+import Img from "react-image";
 import spinner from "../../../assets/images/5.gif";
+import Spinner from "../../Spinner/Spinner";
 
 const ShopMen = props => {
   return (
@@ -52,12 +54,19 @@ const ShopMen = props => {
                       price={details.price}
                       key={productKey}
                     >
-                      <img
+                      <Img
                         src={details.imageUrl}
                         alt={details.name}
                         className="shop-items-image"
                         onClick={() => consumer.showModalHandler(productKey)}
+                        loader={<Spinner />}
                       />
+                      {/* <img
+                        src={details.imageUrl}
+                        alt={details.name}
+                        className="shop-items-image"
+                        onClick={() => consumer.showModalHandler(productKey)}
+                      /> */}
                       <button
                         className="shop-items-addtocart"
                         onClick={() => consumer.addToCartHandler(productKey)}
