@@ -1,7 +1,6 @@
 import React from "react";
-import imageOne from "../../assets/images/product-3.jpg";
-import imageTwo from "../../assets/images/product-9.jpg";
-import imageThree from "../../assets/images/product-13.jpg";
+import Img from "react-image";
+import Spinner from "../Spinner/Spinner";
 
 const About = () => {
   return (
@@ -23,21 +22,34 @@ const About = () => {
           </p>
         </div>
         <div className="about__images">
-          <img
+          <Img
             className="about__image about__image--one"
-            src={imageOne}
-            alt="acme watch product"
+            src="https://firebasestorage.googleapis.com/v0/b/acme-project-930ec.appspot.com/o/other-images%2Fproduct-13.jpg?alt=media&token=4037646b-21a7-4ad9-8633-c92cf9fa93fd"
+            alt="about product one"
+            loader={<Spinner />}
           />
-          <img
+          <Img
             className="about__image about__image--two"
-            src={imageTwo}
-            alt="acme watch product"
+            src="https://firebasestorage.googleapis.com/v0/b/acme-project-930ec.appspot.com/o/other-images%2Fproduct-3.jpg?alt=media&token=a3ab1986-95b7-476a-9637-02301d8147c6"
+            alt="about product two"
+            loader={<Spinner />}
           />
-          <img
+          {/* <img
+            className="about__image about__image--two"
+            src="https://firebasestorage.googleapis.com/v0/b/acme-project-930ec.appspot.com/o/other-images%2Fproduct-3.jpg?alt=media&token=a3ab1986-95b7-476a-9637-02301d8147c6"
+            alt="about product two"
+          /> */}
+          <Img
+            src="https://firebasestorage.googleapis.com/v0/b/acme-project-930ec.appspot.com/o/other-images%2Fproduct-9.jpg?alt=media&token=171fba72-0f67-450a-9b0c-ce1f377ca394"
+            alt="about product three"
             className="about__image about__image--three"
-            src={imageThree}
-            alt="acme watch product"
+            loader={<Spinner />}
           />
+          {/* <img
+            className="about__image about__image--three"
+            src="https://firebasestorage.googleapis.com/v0/b/acme-project-930ec.appspot.com/o/other-images%2Fproduct-9.jpg?alt=media&token=171fba72-0f67-450a-9b0c-ce1f377ca394"
+            alt="about product three"
+          /> */}
         </div>
       </div>
     </section>

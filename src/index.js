@@ -18,6 +18,7 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import App from "./containers/App";
 import { ProductProvider } from "./context";
 import "./sass/main.scss";
+import ScrollToTop from "./containers/ScrollToTop";
 library.add(
   faFacebookF,
   faTwitter,
@@ -33,7 +34,9 @@ library.add(
 const app = (
   <ProductProvider>
     <BrowserRouter>
-      <App />
+      <ScrollToTop>
+        <App />
+      </ScrollToTop>
     </BrowserRouter>
   </ProductProvider>
 );

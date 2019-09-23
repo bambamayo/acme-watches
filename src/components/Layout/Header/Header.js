@@ -35,11 +35,7 @@ class Header extends Component {
         <nav className="header__nav">
           <ul className="navList">
             <li className="navList-item">
-              <NavLink
-                className="navList-item-link"
-                activeClassName="navList-item-link--active"
-                to="/"
-              >
+              <NavLink className="navList-item-link" to="/">
                 ACME
               </NavLink>
             </li>
