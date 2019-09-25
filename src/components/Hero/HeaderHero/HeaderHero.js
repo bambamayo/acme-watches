@@ -12,7 +12,7 @@ const HeaderHero = () => {
           <span className="hero__text--sub">and classy ladies</span>
         </p>
         <div>
-          <Link className="hero__call-to-action m-r-2" to="/shop/men">
+          <Link className="hero__call-to-action" to="/shop/men">
             Shop men
           </Link>
           <Link className="hero__call-to-action" to="/shop/women">

@@ -68,7 +68,11 @@ class Header extends Component {
                       to="/cart"
                     >
                       <Icon type="shopping-cart" />
-                      <span>{consumer.cartNumber}</span>
+                      <span
+                        className={consumer.cartNumber === 0 ? "hide" : "show"}
+                      >
+                        {consumer.cartNumber}
+                      </span>
                       <span>Cart</span>
                     </NavLink>
                   </li>
