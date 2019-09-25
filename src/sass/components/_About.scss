@@ -1,24 +1,61 @@
 .about {
   padding: 15rem 0 25rem 0;
+
+  @include respond(tab-port) {
+    padding: 10rem 0;
+  }
+
+  @include respond(phone) {
+    padding: 5rem 0 25rem 0;
+  }
   &__container {
-    max-width: 114rem;
+    width: 114rem;
     display: flex;
     justify-content: space-between;
+
+    @include respond(tab-land) {
+      width: 90%;
+    }
+
+    @include respond(tab-port) {
+      width: 95%;
+    }
+
+    @include respond(phone) {
+      width: 100%;
+      flex-direction: column;
+    }
   }
 
   &__text-container {
     flex-basis: 45%;
+    margin: 3rem auto;
+
+    @include respond(phone) {
+      flex-basis: 100%;
+      padding: 0 3rem;
+      margin: 1rem auto;
+    }
   }
 
   &__text {
     font-size: 1.6rem;
     margin-bottom: 1rem;
     letter-spacing: 0.1rem;
+
+    @include respond(phone) {
+      text-align: center;
+    }
   }
 
   &__images {
     position: relative;
     flex-basis: 45%;
+
+    @include respond(phone) {
+      flex-basis: 100%;
+      height: 100%;
+    }
   }
 
   &__image {
@@ -30,19 +67,39 @@
     transition: all 0.2s;
     outline-offset: 2rem;
 
+    @include respond(phone) {
+      width: 20%;
+      margin-top: 5rem;
+    }
+
     &--one {
       left: 0;
       top: -2rem;
+
+      @include respond(phone) {
+        left: 24%;
+        top: 2%;
+      }
     }
 
     &--two {
       right: 0;
       top: 2rem;
+
+      @include respond(phone) {
+        right: 24%;
+        top: 2%;
+      }
     }
 
     &--three {
       left: 20%;
       top: 10rem;
+
+      @include respond(phone) {
+        left: 40%;
+        top: -3rem;
+      }
     }
 
     &:hover {
@@ -50,10 +107,20 @@
       transform: scale(1.05) translateY(-0.5rem);
       box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.5);
       z-index: 6;
+
+      @include respond(phone) {
+        outline: none;
+        transform: none;
+        box-shadow: none;
+      }
     }
   }
 
   &__images:hover &__image:not(:hover) {
     transform: scale(0.9);
+
+    @include respond(phone) {
+      transform: none;
+    }
   }
 }

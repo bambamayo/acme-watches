@@ -5,29 +5,69 @@
   position: relative;
   justify-content: space-between;
 
+  @include respond(tab-land) {
+    width: 80%;
+  }
+
+  @include respond(tab-port) {
+    width: 80%;
+    margin: 1rem auto;
+  }
+  @include respond(phone) {
+    width: 90%;
+  }
+
   &__container {
     flex-basis: 45%;
+
+    @include respond(tab-land) {
+      flex-basis: 48%;
+    }
   }
 
   &__link {
     display: block;
-
     height: 90%;
+
+    @include respond(tab-land) {
+      height: auto;
+    }
+
+    @include respond(tab-port) {
+      width: 100%;
+    }
   }
 
   &__imageLink {
     width: 100%;
     height: 100%;
     text-align: center;
+
+    @include respond(tab-land) {
+      height: 90%;
+    }
   }
 
   &__details {
     margin-top: 3rem;
 
+    @include respond(tab-land) {
+      margin-top: 1.5rem;
+    }
+
     &-pri {
       font-size: 2rem;
       font-weight: 700;
       letter-spacing: 0.3rem;
+
+      @include respond(tab-land) {
+        font-size: 1.6rem;
+      }
+
+      @include respond(phone) {
+        font-size: 1.3rem;
+        letter-spacing: 0.1rem;
+      }
     }
 
     &-sec {
@@ -38,6 +78,16 @@
       border: 0.2rem solid $color-black;
       outline: none;
       transition: 0.3s background-color, 0.3s color;
+
+      @include respond(tab-land) {
+        font-size: 1.6rem;
+      }
+
+      @include respond(phone) {
+        font-size: 1.3rem;
+        padding: 0.5rem;
+        width: 60%;
+      }
 
       &:hover {
         background-color: $color-black;

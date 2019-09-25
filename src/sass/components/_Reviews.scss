@@ -2,11 +2,29 @@
   padding: 12rem 0;
   background-color: $color-grey;
 
+  @include respond(tab-land) {
+    padding: 7rem;
+  }
+
+  @include respond(tab-port) {
+    padding: 4rem 0;
+  }
+
   &__images-container {
     width: 70rem;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
+
+    @include respond(tab-port) {
+      width: 70%;
+      margin-top: 1rem;
+    }
+
+    @include respond(phone) {
+      width: 95%;
+      margin-top: 2rem;
+    }
   }
 
   &__customer-image {
@@ -15,12 +33,26 @@
     border-radius: 100%;
     cursor: pointer;
     transition: 0.3s all;
+
+    @include respond(tab-port) {
+      width: 16rem;
+      height: 16rem;
+    }
+
+    @include respond(phone) {
+      width: 12rem;
+      height: 12rem;
+    }
   }
 }
 
 .review__message {
   width: 50rem;
   margin: 4rem auto 0 auto;
+
+  @include respond(phone) {
+    width: 80%;
+  }
 
   &-container {
     display: flex;
@@ -34,11 +66,22 @@
     & h3 {
       font-size: 2rem;
       margin-bottom: 2rem;
+      font-weight: 700;
+
+      @include respond(phone) {
+        font-size: 1.7rem;
+        margn-bottom: 1rem;
+      }
     }
 
     & p {
       font-size: 1.6rem;
       margin-bottom: 2rem;
+
+      @include respond(phone) {
+        font-size: 1.3rem;
+        margn-bottom: 0.7rem;
+      }
     }
   }
 }

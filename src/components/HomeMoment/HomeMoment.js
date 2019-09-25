@@ -8,19 +8,14 @@ const HomeMoment = () => {
     <section className="moment p-t-8 p-b-8">
       <article className="moment__container">
         <Link to="/shop/men" className="moment__link">
-          <Img
+          <img
             className="moment__imageLink"
-            src="https://firebasestorage.googleapis.com/v0/b/acme-project-930ec.appspot.com/o/other-images%2Fman-calltoaction.jpg?alt=media&token=a7cd66f6-78af-48c3-962f-91ae02deef00"
+            srcset="https://res.cloudinary.com/home-of-websites/image/upload/v1569347014/allef-vinicius-GDX6icODpJo-unsplash_yhsrxk.jpg"
+            src="https://res.cloudinary.com/home-of-websites/image/upload/v1569347014/allef-vinicius-GDX6icODpJo-unsplash_yhsrxk.jpg"
             alt="men shop call to action"
-            loader={<Spinner />}
           />
-          {/* <img
-            className="moment__imageLink"
-            src="https://firebasestorage.googleapis.com/v0/b/acme-project-930ec.appspot.com/o/other-images%2Fman-calltoaction.jpg?alt=media&token=a7cd66f6-78af-48c3-962f-91ae02deef00"
-            alt="men shop call to action"
-          /> */}
         </Link>
-        <div className="moment__details m-t-2">
+        <div className="moment__details">
           <p className="moment__details-pri t-c">For the gentlemen</p>
           <Link
             to="/shop/men"
@@ -35,17 +30,11 @@ const HomeMoment = () => {
         <Link to="/shop/women" className="moment__link">
           <Img
             className="moment__imageLink"
-            src="https://firebasestorage.googleapis.com/v0/b/acme-project-930ec.appspot.com/o/other-images%2Fwoman-calltoaction.jpg?alt=media&token=1dafa532-14e7-4448-a58d-0755889c2086"
-            alt="men shop call to action"
+            src="https://res.cloudinary.com/home-of-websites/image/upload/v1569346979/joseph-kellner-mw6D1MerL-U-unsplash_uh7l6v.jpg"
             loader={<Spinner />}
           />
-          {/* <img
-            className="moment__imageLink"
-            src="https://firebasestorage.googleapis.com/v0/b/acme-project-930ec.appspot.com/o/other-images%2Fwoman-calltoaction.jpg?alt=media&token=1dafa532-14e7-4448-a58d-0755889c2086"
-            alt="men shop call to action"
-          /> */}
         </Link>
-        <div className="moment__details m-t-2">
+        <div className="moment__details">
           <p className="t-c moment__details-pri">For the classy ladies</p>
           <Link
             to="/shop/women"
