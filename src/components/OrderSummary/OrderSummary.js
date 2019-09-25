@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 const OrderSummary = () => {
   return (
     <div className="order">
-      <h2>Your order summary</h2>
+      <h2>Your bag contains</h2>
       <div className="order__container">
         <ul className="order__list">
           <ProductConsumer>

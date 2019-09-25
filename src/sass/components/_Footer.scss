@@ -19,7 +19,14 @@
       justify-content: space-between;
     }
 
+    @include respond(phone) {
+    }
+
     &-list {
+      @include respond(phone) {
+        width: 30%;
+        text-align: center;
+      }
       &-header {
         font-size: 1.8rem;
         margin-bottom: 2rem;

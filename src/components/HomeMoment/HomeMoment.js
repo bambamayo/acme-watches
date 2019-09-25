@@ -10,7 +10,6 @@ const HomeMoment = () => {
         <Link to="/shop/men" className="moment__link">
           <img
             className="moment__imageLink"
-            srcset="https://res.cloudinary.com/home-of-websites/image/upload/v1569347014/allef-vinicius-GDX6icODpJo-unsplash_yhsrxk.jpg"
             src="https://res.cloudinary.com/home-of-websites/image/upload/v1569347014/allef-vinicius-GDX6icODpJo-unsplash_yhsrxk.jpg"
             alt="men shop call to action"
           />
