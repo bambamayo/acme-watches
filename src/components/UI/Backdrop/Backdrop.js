@@ -1,12 +1,11 @@
 import React from "react";
 import { ProductConsumer } from "../../../context";
-import classes from "./Backdrop.module.css";
 
 const Backdrop = props => (
   <ProductConsumer>
     {consumer => {
       return consumer.show ? (
-        <div onClick={props.clicked} className={classes.Backdrop}>
+        <div onClick={props.clicked} className="backdrop">
           {props.children}
         </div>
       ) : null;

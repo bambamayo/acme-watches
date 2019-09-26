@@ -21,22 +21,9 @@ const ShopWomen = props => {
             {consumer => {
               if (consumer.products === null) {
                 return (
-                  <div
-                    style={{
-                      width: "100%",
-                      margin: "2rem auto",
-                      textAlign: "center"
-                    }}
-                  >
+                  <div className="loading">
                     <img src={spinner} alt="spinner" />
-                    <p
-                      style={{
-                        fontSize: "2rem",
-                        letterSpacing: "0.2rem"
-                      }}
-                    >
-                      loading products
-                    </p>
+                    <p className="loading-text">loading products</p>
                   </div>
                 );
               }
