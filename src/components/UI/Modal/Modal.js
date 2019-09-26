@@ -7,7 +7,10 @@ const Modal = props => {
     <ProductConsumer>
       {consumer => {
         return (
-          <Backdrop clicked={consumer.closeModalHandler}>
+          <>
+            {consumer.show ? (
+              <Backdrop clicked={consumer.closeModalHandler} />
+            ) : null}
             <div
               className="modal"
               style={{
@@ -15,12 +18,13 @@ const Modal = props => {
                 transform: consumer.show
                   ? "translateY(0)"
                   : "translateY(-100vh)",
-                opacity: consumer.show ? "1" : "0"
+                opacity: consumer.show ? "1" : "0",
+                borderColor: "transparent"
               }}
             >
               {props.children}
             </div>
-          </Backdrop>
+          </>
         );
       }}
     </ProductConsumer>
