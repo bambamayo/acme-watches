@@ -2,8 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Img from "react-image";
 import Spinner from "../Spinner/Spinner";
+import { withRouter } from "react-router-dom";
 
-const HomeMoment = () => {
+const HomeMoment = props => {
   return (
     <section className="moment p-t-8 p-b-8">
       <article className="moment__container">
@@ -16,12 +17,12 @@ const HomeMoment = () => {
         </Link>
         <div className="moment__details">
           <p className="moment__details-pri t-c">For the gentlemen</p>
-          <Link
-            to="/shop/men"
+          <button
             className="d-i-b t-c moment__details-sec m-t-1 m-lr-a"
+            onClick={() => props.history.push("/shop/men")}
           >
             Shop men
-          </Link>
+          </button>
         </div>
       </article>
 
@@ -35,16 +36,16 @@ const HomeMoment = () => {
         </Link>
         <div className="moment__details">
           <p className="t-c moment__details-pri">For the classy ladies</p>
-          <Link
-            to="/shop/women"
+          <button
             className="d-i-b t-c moment__details-sec m-t-1 m-lr-a"
+            onClick={() => props.history.push("/shop/women")}
           >
             Shop women
-          </Link>
+          </button>
         </div>
       </article>
     </section>
   );
 };
 
-export default HomeMoment;
+export default withRouter(HomeMoment);

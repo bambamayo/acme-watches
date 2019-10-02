@@ -19,7 +19,22 @@ const ShopWomen = props => {
         <div className="shop-items__container">
           <ProductConsumer>
             {consumer => {
-              if (consumer.products === null) {
+              if (consumer.error) {
+                return (
+                  <h2
+                    style={{
+                      textAlign: "center",
+                      fontSize: "1.9rem",
+                      width: "100%"
+                    }}
+                  >
+                    Cannot load products at this time{" "}
+                    <span role="img" aria-label="disappointed-face">
+                      &#128542;
+                    </span>
+                  </h2>
+                );
+              } else if (consumer.products === null) {
                 return (
                   <div className="loading">
                     <img src={spinner} alt="spinner" />

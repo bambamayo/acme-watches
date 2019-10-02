@@ -11,6 +11,7 @@ class ProductProvider extends Component {
     products: null,
     cartNumber: 0,
     show: false,
+    error: false,
     productInModal: null,
     totalPrice: 0,
     reviews: { ...reviews },
@@ -19,16 +20,18 @@ class ProductProvider extends Component {
   };
 
   componentDidMount() {
-    axios
-      .get("https://acme-project-930ec.firebaseio.com/products.json")
-      .then(response => {
+    axios.get("https://acme-project-930ec.firebaseio.com/products.json").then(
+      response => {
         this.setState({
           products: response.data
         });
-      })
-      .catch(error => (
-        <h2>Cannot load products at this moment, due to {error}</h2>
-      ));
+      },
+      error => {
+        this.setState({
+          error: true
+        });
+      }
+    );
   }
 
   showCustomerReviewHandler = reviewId => {
@@ -177,7 +180,8 @@ class ProductProvider extends Component {
           deleteIndividualItemHandler: this.deleteIndividualItemHandler,
           onClickModalHandler: this.onClickModalHandler,
           showCustomerReviewHandler: this.showCustomerReviewHandler,
-          pushDataToFirebaseHandler: this.pushDataToFirebaseHandler
+          pushDataToFirebaseHandler: this.pushDataToFirebaseHandler,
+          productsInCartHandler: this.productsInCartHandler
         }}
       >
         {this.props.children}

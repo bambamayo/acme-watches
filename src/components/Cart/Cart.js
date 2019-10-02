@@ -3,7 +3,7 @@ import { ProductConsumer } from "../../context";
 import { NavLink } from "react-router-dom";
 import Icon from "../UI/Icon/Icon";
 
-const Cart = () => {
+const Cart = props => {
   return (
     <section className="cart">
       <h2>Items in cart </h2>
@@ -142,7 +142,9 @@ const Cart = () => {
                         Clear cart <Icon type="trash-alt" />
                       </button>
 
-                      <NavLink to="/ordersummary">Proceed to checkout</NavLink>
+                      <button onClick={() => props.history.push("/checkout")}>
+                        Proceed to checkout
+                      </button>
                     </div>
                   </div>
                 </div>

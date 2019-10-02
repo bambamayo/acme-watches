@@ -154,7 +154,6 @@
       padding: 1rem 2rem;
       font-size: 1.6rem;
       border-color: transparent;
-      background-color: $color-black;
       cursor: pointer;
       border-radius: 0.5rem;
       color: $color-white;
@@ -167,7 +166,14 @@
 
     & button {
       margin-right: 1.3rem;
-      background-color: #ff0000;
+
+      &:not(:last-child) {
+        background-color: $color-fail;
+      }
+
+      &:last-child {
+        background-color: $color-success;
+      }
     }
   }
 }
