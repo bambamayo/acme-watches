@@ -7,9 +7,6 @@ import ShopWomen from "../components/Shop/ShopWomen/ShopWomen";
 import ShopMen from "../components/Shop/ShopMen/ShopMen";
 import Cart from "../components/Cart/Cart";
 import NotFound from "../components/NotFound/NotFound";
-// import SignIn from "../components/Auth/SignIn/SignIn";
-// import Register from "../components/Auth/Register/Register";
-import Auth from "../components/Auth/Auth";
 
 class App extends Component {
   render() {
@@ -22,9 +19,6 @@ class App extends Component {
             <Route path="/shop/women" component={ShopWomen} />
             <Route path="/cart" component={Cart} />
             <Route path="/checkout" component={Checkout} />
-            {/* <Route path="/signin" component={SignIn} />
-            <Route path="/Register" component={Register} /> */}
-            <Route path="/account" component={Auth} />
             <Route component={NotFound} />
           </Switch>
         </Layout>

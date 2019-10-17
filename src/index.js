@@ -17,7 +17,6 @@ import {
 import { library } from "@fortawesome/fontawesome-svg-core";
 import App from "./containers/App";
 import { ProductProvider } from "./context";
-import { AuthProvider } from "./authContext";
 import "./sass/main.scss";
 import ScrollToTop from "./containers/ScrollToTop";
 
@@ -34,15 +33,13 @@ library.add(
 );
 
 const app = (
-  <AuthProvider>
-    <ProductProvider>
-      <BrowserRouter>
-        <ScrollToTop>
-          <App />
-        </ScrollToTop>
-      </BrowserRouter>
-    </ProductProvider>
-  </AuthProvider>
+  <ProductProvider>
+    <BrowserRouter>
+      <ScrollToTop>
+        <App />
+      </ScrollToTop>
+    </BrowserRouter>
+  </ProductProvider>
 );
 
 ReactDOM.render(app, document.getElementById("root"));

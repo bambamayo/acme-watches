@@ -3,7 +3,6 @@ import React, { Component } from "react";
 import reviews from "./reviews";
 import { defaultReview } from "./reviews";
 import axios from "axios";
-import { AuthConsumer } from "./authContext";
 
 const ProductContext = React.createContext();
 
@@ -156,29 +155,22 @@ class ProductProvider extends Component {
 
   render() {
     return (
-      <AuthConsumer>
-        {consumer => {
-          return (
-            <ProductContext.Provider
-              value={{
-                ...consumer,
-                ...this.state,
-                addToCartHandler: this.addToCartHandler,
-                showModalHandler: this.showModalHandler,
-                closeModalHandler: this.closeModalHandler,
-                increaseCartCountHandler: this.increaseCartCountHandler,
-                decreaseCartCountHandler: this.decreaseCartCountHandler,
-                clearItemsInCartHandler: this.clearItemsInCartHandler,
-                deleteIndividualItemHandler: this.deleteIndividualItemHandler,
-                onClickModalHandler: this.onClickModalHandler,
-                showCustomerReviewHandler: this.showCustomerReviewHandler
-              }}
-            >
-              {this.props.children}
-            </ProductContext.Provider>
-          );
+      <ProductContext.Provider
+        value={{
+          ...this.state,
+          addToCartHandler: this.addToCartHandler,
+          showModalHandler: this.showModalHandler,
+          closeModalHandler: this.closeModalHandler,
+          increaseCartCountHandler: this.increaseCartCountHandler,
+          decreaseCartCountHandler: this.decreaseCartCountHandler,
+          clearItemsInCartHandler: this.clearItemsInCartHandler,
+          deleteIndividualItemHandler: this.deleteIndividualItemHandler,
+          onClickModalHandler: this.onClickModalHandler,
+          showCustomerReviewHandler: this.showCustomerReviewHandler
         }}
-      </AuthConsumer>
+      >
+        {this.props.children}
+      </ProductContext.Provider>
     );
   }
 }

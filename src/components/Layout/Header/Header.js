@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import Icon from "../../UI/Icon/Icon";
 import { NavLink } from "react-router-dom";
 import { ProductConsumer } from "../../../context";
-import { AuthConsumer } from "../../../authContext";
 
 class Header extends Component {
   render() {
@@ -34,35 +33,6 @@ class Header extends Component {
                 Shop women
               </NavLink>
             </li>
-            <AuthConsumer>
-              {consumer => {
-                if (consumer.isSignedIn) {
-                  return (
-                    <li className="navList-item">
-                      <NavLink
-                        className="navList-item-link"
-                        activeClassName="navList-item-link--active"
-                        to="/account"
-                      >
-                        logout
-                      </NavLink>
-                    </li>
-                  );
-                } else {
-                  return (
-                    <li className="navList-item">
-                      <NavLink
-                        className="navList-item-link"
-                        activeClassName="navList-item-link--active"
-                        to="/account"
-                      >
-                        sign in
-                      </NavLink>
-                    </li>
-                  );
-                }
-              }}
-            </AuthConsumer>
 
             <ProductConsumer>
               {consumer => {

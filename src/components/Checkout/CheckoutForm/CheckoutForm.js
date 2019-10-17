@@ -4,6 +4,11 @@ import axios from "../../../axios-products";
 import { ProductConsumer } from "../../../context";
 
 class CheckoutForm extends Component {
+  state = {
+    loading: false,
+    error: null
+  };
+
   nameRef = React.createRef();
   emailRef = React.createRef();
   addressRef = React.createRef();
@@ -40,10 +45,25 @@ class CheckoutForm extends Component {
       }
     };
 
+    this.setState({
+      loading: true
+    });
+
     axios
       .post("/orders.json?auth=" + this.props.userToken, order)
-      .then(resp => console.log(resp.data))
-      .catch(error => console.log(error.response.data.error));
+      .then(resp => {
+        console.log(resp.data);
+        this.setState({
+          loading: false
+        });
+      })
+      .catch(error => {
+        console.log(error.response.data.error);
+        this.setState({
+          error: error.response.data.error,
+          loading: false
+        });
+      });
   };
 
   render() {
