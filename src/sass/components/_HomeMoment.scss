@@ -27,7 +27,10 @@
 
   &__link {
     display: block;
-    height: 90%;
+    height: auto;
+    position: relative;
+    width: 100%; //
+    transition: 0.3s ease-in all;
 
     @include respond(tab-land) {
       height: auto;
@@ -90,7 +93,8 @@
         width: 60%;
       }
 
-      &:hover {
+      &:hover,
+      &:focus {
         background-color: $color-black;
         color: $color-white;
       }

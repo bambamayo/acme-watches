@@ -3,8 +3,8 @@ import spinner from "../../assets/images/100.gif";
 
 const Spinner = props => {
   return (
-    <div className="spinner">
-      <img className="spinner__image" src={spinner} alt={spinner} />
+    <div className="spinner2">
+      <img className="spinner2__image" src={spinner} alt={spinner} />
     </div>
   );
 };

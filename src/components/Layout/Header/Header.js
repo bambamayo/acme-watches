@@ -2,36 +2,12 @@ import React, { Component } from "react";
 import Icon from "../../UI/Icon/Icon";
 import { NavLink } from "react-router-dom";
 import { ProductConsumer } from "../../../context";
+import { AuthConsumer } from "../../../authContext";
 
 class Header extends Component {
-  state = {
-    show: true,
-    scrollPos: 0
-  };
-
-  componenentDidMount() {
-    window.addEventListener("scroll", this.headerScrolledHandler);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener("scroll", this.headerScrolledHandler);
-  }
-  headerScrolledHandler = () => {
-    let { scrollPos } = this.state;
-    const currentScrollPos = window.pageYOffset;
-    const show = scrollPos > currentScrollPos;
-    this.setState({
-      scrollPos: currentScrollPos,
-      show
-    });
-  };
-
   render() {
     return (
-      <header
-        style={{ top: this.state.show ? "0" : "-90px" }}
-        className="header"
-      >
+      <header className="header">
         <nav className="header__nav">
           <ul className="navList">
             <li className="navList-item">
@@ -58,6 +34,36 @@ class Header extends Component {
                 Shop women
               </NavLink>
             </li>
+            <AuthConsumer>
+              {consumer => {
+                if (consumer.isSignedIn) {
+                  return (
+                    <li className="navList-item">
+                      <NavLink
+                        className="navList-item-link"
+                        activeClassName="navList-item-link--active"
+                        to="/account"
+                      >
+                        logout
+                      </NavLink>
+                    </li>
+                  );
+                } else {
+                  return (
+                    <li className="navList-item">
+                      <NavLink
+                        className="navList-item-link"
+                        activeClassName="navList-item-link--active"
+                        to="/account"
+                      >
+                        sign in
+                      </NavLink>
+                    </li>
+                  );
+                }
+              }}
+            </AuthConsumer>
+
             <ProductConsumer>
               {consumer => {
                 return (

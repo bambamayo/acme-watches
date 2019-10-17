@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import axios from "../../../axios-products";
+import { ProductConsumer } from "../../../context";
 
 class CheckoutForm extends Component {
   nameRef = React.createRef();
@@ -40,11 +41,9 @@ class CheckoutForm extends Component {
     };
 
     axios
-      .post("/orders.json", order)
-      .then(resp => console.log(resp.data), error => console.log(error));
-
-    e.currentTarget.reset();
-    console.log(order);
+      .post("/orders.json?auth=" + this.props.userToken, order)
+      .then(resp => console.log(resp.data))
+      .catch(error => console.log(error.response.data.error));
   };
 
   render() {
@@ -109,9 +108,20 @@ class CheckoutForm extends Component {
             required
           />
         </div>
-        <button className="form-button" style={{ backgroundColor: "green" }}>
-          Proceed to pay &rarr;
-        </button>
+        <ProductConsumer>
+          {consumer => {
+            return (
+              <button
+                className="form-button"
+                onClick={consumer.clearItemsInCartHandler}
+                style={{ backgroundColor: "green" }}
+              >
+                Proceed to pay &rarr;
+              </button>
+            );
+          }}
+        </ProductConsumer>
+
         <button
           className="form-button"
           onClick={() => this.props.history.goBack()}

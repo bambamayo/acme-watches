@@ -10,9 +10,16 @@ class Checkout extends Component {
         <div className="checkout__container">
           <div className="checkout__form">
             <h2>Please fill in your delivery details</h2>
+
             <ProductConsumer>
               {consumer => {
-                return <CheckoutForm products={consumer.products} />;
+                return (
+                  <CheckoutForm
+                    userToken={consumer.token}
+                    products={consumer.products}
+                    cartNumber={consumer.cartNumber}
+                  />
+                );
               }}
             </ProductConsumer>
           </div>

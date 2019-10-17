@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import reviews from "./reviews";
 import { defaultReview } from "./reviews";
 import axios from "axios";
+import { AuthConsumer } from "./authContext";
 
 const ProductContext = React.createContext();
 
@@ -13,7 +14,7 @@ class ProductProvider extends Component {
     show: false,
     error: false,
     productInModal: null,
-    totalPrice: 0,
+    // totalPrice: 0,
     reviews: { ...reviews },
     customerReview: null,
     defaultReview: defaultReview
@@ -153,39 +154,31 @@ class ProductProvider extends Component {
     });
   };
 
-  // searchInputChangeHandler = e => {
-  //   this.setState({ searchInputVal: e.target.value });
-  //   let searchedWatch = this.state.products.filter(product => {
-  //     return product.name
-  //       .toLowerCase()
-  //       .includes(this.state.searchInputVal.toLowerCase());
-  //   });
-  //   return searchedWatch;
-  //   // this.setState({
-  //   //   products: searchedWatch
-  //   // });
-  // };
-
   render() {
     return (
-      <ProductContext.Provider
-        value={{
-          ...this.state,
-          addToCartHandler: this.addToCartHandler,
-          showModalHandler: this.showModalHandler,
-          closeModalHandler: this.closeModalHandler,
-          increaseCartCountHandler: this.increaseCartCountHandler,
-          decreaseCartCountHandler: this.decreaseCartCountHandler,
-          clearItemsInCartHandler: this.clearItemsInCartHandler,
-          deleteIndividualItemHandler: this.deleteIndividualItemHandler,
-          onClickModalHandler: this.onClickModalHandler,
-          showCustomerReviewHandler: this.showCustomerReviewHandler,
-          pushDataToFirebaseHandler: this.pushDataToFirebaseHandler,
-          productsInCartHandler: this.productsInCartHandler
+      <AuthConsumer>
+        {consumer => {
+          return (
+            <ProductContext.Provider
+              value={{
+                ...consumer,
+                ...this.state,
+                addToCartHandler: this.addToCartHandler,
+                showModalHandler: this.showModalHandler,
+                closeModalHandler: this.closeModalHandler,
+                increaseCartCountHandler: this.increaseCartCountHandler,
+                decreaseCartCountHandler: this.decreaseCartCountHandler,
+                clearItemsInCartHandler: this.clearItemsInCartHandler,
+                deleteIndividualItemHandler: this.deleteIndividualItemHandler,
+                onClickModalHandler: this.onClickModalHandler,
+                showCustomerReviewHandler: this.showCustomerReviewHandler
+              }}
+            >
+              {this.props.children}
+            </ProductContext.Provider>
+          );
         }}
-      >
-        {this.props.children}
-      </ProductContext.Provider>
+      </AuthConsumer>
     );
   }
 }

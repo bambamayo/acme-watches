@@ -9,9 +9,10 @@ const HomeMoment = props => {
     <section className="moment p-t-8 p-b-8">
       <article className="moment__container">
         <Link to="/shop/men" className="moment__link">
-          <img
+          <Img
             className="moment__imageLink"
             src="https://res.cloudinary.com/home-of-websites/image/upload/v1569347014/allef-vinicius-GDX6icODpJo-unsplash_yhsrxk.jpg"
+            loader={<Spinner />}
             alt="men shop call to action"
           />
         </Link>

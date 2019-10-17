@@ -5,7 +5,7 @@ import ProductDetails from "../../ProductDetails/ProductDetails";
 import Modal from "../../UI/Modal/Modal";
 import Img from "react-image";
 import spinner from "../../../assets/images/5.gif";
-import Spinner from "../../Spinner/Spinner";
+import Spinner3 from "../../Spinner/Spinner3";
 
 const ShopMen = props => {
   return (
@@ -61,7 +61,7 @@ const ShopMen = props => {
                         alt={details.name}
                         className="shop-items-image"
                         onClick={() => consumer.showModalHandler(productKey)}
-                        loader={<Spinner />}
+                        loader={<Spinner3 />}
                       />
                       {/* <img
                         src={details.imageUrl}
