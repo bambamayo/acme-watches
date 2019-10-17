@@ -1,7 +1,41 @@
 .spinner {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  width: 100%;
+  height: 67.8133rem;
+  position: relative;
+
+  &__image {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+  }
+}
+
+.spinner2 {
+  height: 20rem;
+  position: relative;
+
+  &__image {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+  }
+}
+
+.spinner3 {
+  height: 33.183rem;
+  position: relative;
+
+  &__image {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+  }
 }

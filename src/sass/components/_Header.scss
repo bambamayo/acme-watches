@@ -3,7 +3,7 @@
   width: 100%;
   background-color: $color-blue-light;
   position: fixed;
-  /* top: 0; */
+   top: 0; 
   left: 0;
   z-index: 10;
   transition: 0.3s ease-in all;
@@ -48,7 +48,7 @@
         margin-right: 3rem;
       }
 
-      &:last-child {
+      &:nth-child(4){
         margin-left: auto;
 
         // @include respond(phone) {

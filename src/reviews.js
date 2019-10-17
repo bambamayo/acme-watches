@@ -28,8 +28,9 @@ const reviews = {
       country: "Nigeria"
     },
     review:
-      "https://firebasestorage.googleapis.com/v0/b/acme-project-930ec.appspot.com/o/reviews-images%2Freview-3.jpg?alt=media&token=949ba637-0dcd-4aeb-a97a-3161be4b61dftia.",
-    customerImage: "/images/review-images/review-3.jpg"
+      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro doloribus nesciunt dolores laboriosam corporis sed quo minima! Porro necessitatibus vero exercitationem dicta aspernatur, pariatur suscipit ipsum aliquid, culpa quidem dolor.",
+    customerImage:
+      "https://firebasestorage.googleapis.com/v0/b/acme-project-930ec.appspot.com/o/reviews-images%2Freview-3.jpg?alt=media&token=949ba637-0dcd-4aeb-a97a-3161be4b61df"
   }
 };
 

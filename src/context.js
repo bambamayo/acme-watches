@@ -11,24 +11,27 @@ class ProductProvider extends Component {
     products: null,
     cartNumber: 0,
     show: false,
+    error: false,
     productInModal: null,
-    totalPrice: 0,
+    // totalPrice: 0,
     reviews: { ...reviews },
     customerReview: null,
     defaultReview: defaultReview
   };
 
   componentDidMount() {
-    axios
-      .get("https://acme-project-930ec.firebaseio.com/products.json")
-      .then(response => {
+    axios.get("https://acme-project-930ec.firebaseio.com/products.json").then(
+      response => {
         this.setState({
           products: response.data
         });
-      })
-      .catch(error => (
-        <h2>Cannot load products at this moment, due to {error}</h2>
-      ));
+      },
+      error => {
+        this.setState({
+          error: true
+        });
+      }
+    );
   }
 
   showCustomerReviewHandler = reviewId => {
@@ -150,19 +153,6 @@ class ProductProvider extends Component {
     });
   };
 
-  // searchInputChangeHandler = e => {
-  //   this.setState({ searchInputVal: e.target.value });
-  //   let searchedWatch = this.state.products.filter(product => {
-  //     return product.name
-  //       .toLowerCase()
-  //       .includes(this.state.searchInputVal.toLowerCase());
-  //   });
-  //   return searchedWatch;
-  //   // this.setState({
-  //   //   products: searchedWatch
-  //   // });
-  // };
-
   render() {
     return (
       <ProductContext.Provider
@@ -176,8 +166,7 @@ class ProductProvider extends Component {
           clearItemsInCartHandler: this.clearItemsInCartHandler,
           deleteIndividualItemHandler: this.deleteIndividualItemHandler,
           onClickModalHandler: this.onClickModalHandler,
-          showCustomerReviewHandler: this.showCustomerReviewHandler,
-          pushDataToFirebaseHandler: this.pushDataToFirebaseHandler
+          showCustomerReviewHandler: this.showCustomerReviewHandler
         }}
       >
         {this.props.children}

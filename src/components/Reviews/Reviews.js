@@ -1,7 +1,7 @@
 import React from "react";
 import Img from "react-image";
 import { ProductConsumer } from "../../context";
-import Spinner from "../Spinner/Spinner";
+import Spinner2 from "../Spinner/Spinner2";
 
 const Reviews = () => {
   return (
@@ -29,7 +29,7 @@ const Reviews = () => {
                     src={details.customerImage}
                     alt="customer thumbnail"
                     key={productKey}
-                    loader={<Spinner />}
+                    loader={<Spinner2 />}
                   />
                 );
               } else {
@@ -45,7 +45,7 @@ const Reviews = () => {
                     src={details.customerImage}
                     alt="customer thumbnail"
                     key={productKey}
-                    loader={<Spinner />}
+                    loader={<Spinner2 />}
                   />
                 );
               }

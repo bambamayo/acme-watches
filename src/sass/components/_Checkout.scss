@@ -2,6 +2,19 @@
   margin-top: 8rem;
   padding: 6rem 0 10rem 0;
 
+  &__container {
+    display: flex;
+    width: 70%;
+    margin: 0 auto;
+  }
+
+  &__form {
+    padding: 2rem;
+    flex-basis: 70%;
+    border: 1px solid #eee;
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.5);
+  }
+
   & h2 {
     font-size: 2.5rem;
     text-align: center;
@@ -14,5 +27,67 @@
     @include respond(phone) {
       font-size: 1.4rem;
     }
+  }
+}
+
+.form {
+  &__container {
+    margin-bottom: 2rem;
+
+    & input,
+    & label {
+      display: block;
+      font-size: 1.8rem;
+    }
+
+    & label {
+      margin-bottom: 0.3rem;
+      font-weight: 700;
+    }
+
+    & input {
+      width: 60%;
+      font-weight: 400;
+      padding: 1rem 2rem;
+      border: 1px solid transparent;
+      background-color: #eee;
+      border-radius: 1rem;
+
+      &::placeholder {
+        color: $color-black;
+        font-size: 1.8rem;
+        text-transform: capitalize;
+      }
+
+      &:focus {
+        border: 0.2rem solid $color-success;
+      }
+
+      &:invalid {
+        border: 0.2rem solid $color-fail;
+      }
+    }
+  }
+
+  &-button {
+    color: $color-white;
+    font-size: 1.6rem;
+    padding: 1rem 2rem;
+    border: none;
+    cursor: pointer;
+    margin-right: 3rem;
+    transition: 0.2s all;
+    border-radius: 0.5rem;
+
+    &:hover,
+    &:focus {
+      transform: translateY(-0.2rem);
+    }
+  }
+
+  &-redirect-msg {
+    margin-top: 1rem;
+    font-size: 1.6rem;
+    width: 50%;
   }
 }

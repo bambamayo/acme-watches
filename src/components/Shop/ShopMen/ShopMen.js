@@ -5,7 +5,7 @@ import ProductDetails from "../../ProductDetails/ProductDetails";
 import Modal from "../../UI/Modal/Modal";
 import Img from "react-image";
 import spinner from "../../../assets/images/5.gif";
-import Spinner from "../../Spinner/Spinner";
+import Spinner3 from "../../Spinner/Spinner3";
 
 const ShopMen = props => {
   return (
@@ -19,7 +19,22 @@ const ShopMen = props => {
         <div className="shop-items__container">
           <ProductConsumer>
             {consumer => {
-              if (consumer.products === null) {
+              if (consumer.error) {
+                return (
+                  <h2
+                    style={{
+                      textAlign: "center",
+                      fontSize: "1.9rem",
+                      width: "100%"
+                    }}
+                  >
+                    Cannot load products at this time{" "}
+                    <span role="img" aria-label="disappointed-face">
+                      &#128542;
+                    </span>
+                  </h2>
+                );
+              } else if (consumer.products === null) {
                 return (
                   <div className="loading">
                     <img src={spinner} alt="spinner" />
@@ -46,7 +61,7 @@ const ShopMen = props => {
                         alt={details.name}
                         className="shop-items-image"
                         onClick={() => consumer.showModalHandler(productKey)}
-                        loader={<Spinner />}
+                        loader={<Spinner3 />}
                       />
                       {/* <img
                         src={details.imageUrl}
