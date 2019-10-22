@@ -49,6 +49,7 @@
 .review__message {
   width: 50rem;
   margin: 4rem auto 0 auto;
+  height: auto;
 
   @include respond(phone) {
     width: 80%;
@@ -56,12 +57,14 @@
 
   &-container {
     display: flex;
+
     flex-direction: column;
     justify-content: center;
     align-items: center;
     box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.5);
     padding: 2rem;
     transition: 1s all ease-in;
+    text-align: center;
 
     & h3 {
       font-size: 2rem;
