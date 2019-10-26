@@ -1,8 +1,7 @@
 import React from "react";
+import { withRouter } from "react-router-dom";
 import ProductContainer from "../../ProductContainer/ProductContainer";
 import { ProductConsumer } from "../../../context";
-import ProductDetails from "../../ProductDetails/ProductDetails";
-import Modal from "../../UI/Modal/Modal";
 import Img from "react-image";
 import spinner from "../../../assets/images/5.gif";
 import Spinner3 from "../../Spinner/Spinner3";
@@ -10,9 +9,6 @@ import Spinner3 from "../../Spinner/Spinner3";
 const ShopMen = props => {
   return (
     <>
-      <Modal>
-        <ProductDetails />
-      </Modal>
       <section className="shop">
         <h2>Shop Men</h2>
 
@@ -60,15 +56,16 @@ const ShopMen = props => {
                         src={details.imageUrl}
                         alt={details.name}
                         className="shop-items-image"
-                        onClick={() => consumer.showModalHandler(productKey)}
+                        onClick={() =>
+                          props.history.push(
+                            `/shop/product/${consumer.onProductClickedHandler(
+                              productKey
+                            )}`
+                          )
+                        }
                         loader={<Spinner3 />}
                       />
-                      {/* <img
-                        src={details.imageUrl}
-                        alt={details.name}
-                        className="shop-items-image"
-                        onClick={() => consumer.showModalHandler(productKey)}
-                      /> */}
+
                       <button
                         className="shop-items-addtocart"
                         onClick={() => consumer.addToCartHandler(productKey)}
@@ -88,20 +85,4 @@ const ShopMen = props => {
   );
 };
 
-export default ShopMen;
-
-/* <ProductConsumer>
-          {consumer => {
-            return (
-              <div className={classes.SearchInputContainer}>
-                <input
-                  defaultValue={consumer.searchInputVal}
-                  onChange={consumer.searchInputChangeHandler}
-                  className={classes.ShopSearchInput}
-                  placeholder="search shop"
-                  type="search"
-                />
-              </div>
-            );
-          }}
-        </ProductConsumer> */
+export default withRouter(ShopMen);

@@ -15,9 +15,9 @@ class Checkout extends Component {
               {consumer => {
                 return (
                   <CheckoutForm
-                    userToken={consumer.token}
                     products={consumer.products}
                     cartNumber={consumer.cartNumber}
+                    clearItemsInCartHandler={consumer.clearItemsInCartHandler}
                   />
                 );
               }}

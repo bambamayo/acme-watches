@@ -1,0 +1,35 @@
+//checkoutform alert
+.checkoutform-alert {
+  width: 40%;
+  background-color: $color-grey;
+  padding: 4rem 2rem;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+  font-weight: 700;
+  transition: 0.2s all ease-in;
+
+  @include respond(tab-port) {
+    padding: 6rem 2rem;
+  }
+
+  @include respond(phone) {
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 100%;
+    padding: 2rem;
+    font-size: 1.8rem;
+  }
+
+  &--icon {
+    font-size: 3.5rem;
+    color: $color-success;
+
+    @include respond(phone) {
+      font-size: 2.5rem;
+    }
+  }
+}

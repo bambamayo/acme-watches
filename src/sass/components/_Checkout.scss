@@ -6,6 +6,23 @@
     display: flex;
     width: 70%;
     margin: 0 auto;
+
+    @include respond(tab-land) {
+      width: 90%;
+      justify-content: space-between;
+    }
+
+    @include respond(tab-port) {
+      width: 95%;
+    }
+
+    @include respond(tab-port) {
+      width: 95%;
+    }
+
+    @include respond(phone) {
+      flex-wrap: wrap-reverse;
+    }
   }
 
   &__form {
@@ -13,6 +30,15 @@
     flex-basis: 70%;
     border: 1px solid #eee;
     box-shadow: 0 0.5rem 1rem rgba($color-black, 0.5);
+
+    @include respond(tab-land) {
+      flex-basis: 65%;
+    }
+
+    @include respond(tab-land) {
+      flex-basis: 95%;
+      margin: 0 auto;
+    }
   }
 
   & h2 {
@@ -53,6 +79,10 @@
       background-color: #eee;
       border-radius: 1rem;
 
+      @include respond(phone) {
+        width: 80%;
+      }
+
       &::placeholder {
         color: $color-black;
         font-size: 1.8rem;
@@ -89,5 +119,12 @@
     margin-top: 1rem;
     font-size: 1.6rem;
     width: 50%;
+  }
+
+  &-error-msg {
+    color: $color-fail;
+    font-size: 2rem;
+    margin-top: 1rem;
+    font-weight: 700;
   }
 }

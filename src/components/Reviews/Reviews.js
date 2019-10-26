@@ -25,7 +25,6 @@ class Reviews extends Component {
         displayedReview: response.data.review1
       });
     } catch (error) {
-      console.log(error);
       this.setState({
         error: error.response.data.error,
         loading: false

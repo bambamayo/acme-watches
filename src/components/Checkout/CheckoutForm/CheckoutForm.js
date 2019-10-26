@@ -1,12 +1,15 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { withRouter } from "react-router-dom";
 import axios from "../../../axios-products";
 import { ProductConsumer } from "../../../context";
+import Alert from "../../UI/Alert/Alert";
+import Icon from "../../UI/Icon/Icon";
 
 class CheckoutForm extends Component {
   state = {
     loading: false,
-    error: null
+    error: null,
+    showAlert: true
   };
 
   nameRef = React.createRef();
@@ -50,112 +53,137 @@ class CheckoutForm extends Component {
     });
 
     axios
-      .post("/orders.json?auth=" + this.props.userToken, order)
+      .post("/orders.json", order)
       .then(resp => {
-        console.log(resp.data);
+        console.log(resp);
         this.setState({
-          loading: false
+          loading: false,
+          showAlert: true
         });
       })
       .catch(error => {
-        console.log(error.response.data.error);
         this.setState({
           error: error.response.data.error,
-          loading: false
+          loading: false,
+          showAlert: false
         });
       });
+
+    setTimeout(() => {
+      this.props.history.push("/");
+    }, 10000);
+
+    this.props.clearItemsInCartHandler();
   };
 
   render() {
+    const { error, showAlert } = this.state;
     return (
-      <form className="form" onSubmit={this.onFormSubmitHandler}>
-        <div className="form__container">
-          <label htmlFor="name">Full name</label>
-          <input
-            ref={this.nameRef}
-            type="text"
-            name="name"
-            placeholder="John Doe"
-            required
-          />
-        </div>
-        <div className="form__container">
-          <label htmlFor="email">Email</label>
-          <input
-            ref={this.emailRef}
-            type="email"
-            name="email"
-            placeholder="john@example.com"
-            required
-          />
-        </div>
-        <div className="form__container">
-          <label htmlFor="address">Address</label>
-          <input
-            ref={this.addressRef}
-            type="text"
-            name="address"
-            placeholder="20 shotinoye street"
-            required
-          />
-        </div>
-        <div className="form__container">
-          <label htmlFor="address-two">Address 2 (Optional)</label>
-          <input
-            ref={this.addressTwoRef}
-            type="text"
-            name="address-two"
-            placeholder="20 harvey road"
-          />
-        </div>
-        <div className="form__container">
-          <label htmlFor="city">City</label>
-          <input
-            ref={this.cityRef}
-            type="text"
-            name="city"
-            placeholder="Mushin"
-            required
-          />
-        </div>
-        <div className="form__container">
-          <label htmlFor="state">State</label>
-          <input
-            ref={this.stateRef}
-            type="text"
-            name="state"
-            placeholder="Lagos"
-            required
-          />
-        </div>
-        <ProductConsumer>
-          {consumer => {
-            return (
-              <button
-                className="form-button"
-                onClick={consumer.clearItemsInCartHandler}
-                style={{ backgroundColor: "green" }}
-              >
-                Proceed to pay &rarr;
-              </button>
-            );
-          }}
-        </ProductConsumer>
+      <Fragment>
+        {showAlert && (
+          <Alert classname="checkoutform-alert">
+            <Icon type="check-circle" classname="checkoutform-alert--icon" />
+            <p>
+              You order has been submitted, you will get a call from one of our
+              representative soon, redirecting you to home page
+            </p>
+          </Alert>
+        )}
 
-        <button
-          className="form-button"
-          onClick={() => this.props.history.goBack()}
-          style={{ backgroundColor: "black" }}
-        >
-          return to cart &larr;
-        </button>
-        <p className="form-redirect-msg">
-          <strong>
-            You'll be redirected to paystack secured payment site, to complete
-            order
-          </strong>
-        </p>
-      </form>
+        <form className="form" onSubmit={this.onFormSubmitHandler}>
+          <div className="form__container">
+            <label htmlFor="name">Full name</label>
+            <input
+              ref={this.nameRef}
+              type="text"
+              name="name"
+              placeholder="John Doe"
+              required
+            />
+          </div>
+          <div className="form__container">
+            <label htmlFor="email">Email</label>
+            <input
+              ref={this.emailRef}
+              type="email"
+              name="email"
+              placeholder="john@example.com"
+              required
+            />
+          </div>
+          <div className="form__container">
+            <label htmlFor="address">Address</label>
+            <input
+              ref={this.addressRef}
+              type="text"
+              name="address"
+              placeholder="20 shotinoye street"
+              required
+            />
+          </div>
+          <div className="form__container">
+            <label htmlFor="address-two">Address 2 (Optional)</label>
+            <input
+              ref={this.addressTwoRef}
+              type="text"
+              name="address-two"
+              placeholder="20 harvey road"
+            />
+          </div>
+          <div className="form__container">
+            <label htmlFor="city">City</label>
+            <input
+              ref={this.cityRef}
+              type="text"
+              name="city"
+              placeholder="Mushin"
+              required
+            />
+          </div>
+          <div className="form__container">
+            <label htmlFor="state">State</label>
+            <input
+              ref={this.stateRef}
+              type="text"
+              name="state"
+              placeholder="Lagos"
+              required
+            />
+          </div>
+          <ProductConsumer>
+            {consumer => {
+              return (
+                <button
+                  className="form-button"
+                  onClick={error && consumer.clearItemsInCartHandler}
+                  style={{ backgroundColor: "green" }}
+                >
+                  Proceed to pay &rarr;
+                </button>
+              );
+            }}
+          </ProductConsumer>
+
+          <button
+            className="form-button"
+            onClick={() => this.props.history.goBack()}
+            style={{ backgroundColor: "black" }}
+          >
+            return to cart &larr;
+          </button>
+          {error && (
+            <p className="form-error-msg">
+              <Icon type="times-circle" /> Cannot complete order because {error}
+            </p>
+          )}
+          <p className="form-redirect-msg">
+            <strong>
+              <Icon type="info-circle" /> You will be required to pay on
+              delivery
+            </strong>
+          </p>
+        </form>
+      </Fragment>
     );
   }
 }
