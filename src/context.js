@@ -1,7 +1,4 @@
 import React, { Component } from "react";
-
-import reviews from "./reviews";
-import { defaultReview } from "./reviews";
 import axios from "axios";
 
 const ProductContext = React.createContext();
@@ -12,11 +9,7 @@ class ProductProvider extends Component {
     cartNumber: 0,
     show: false,
     error: false,
-    productInModal: null,
-    // totalPrice: 0,
-    reviews: { ...reviews },
-    customerReview: null,
-    defaultReview: defaultReview
+    product: ""
   };
 
   componentDidMount() {
@@ -34,42 +27,6 @@ class ProductProvider extends Component {
     );
   }
 
-  showCustomerReviewHandler = reviewId => {
-    const reviews = { ...this.state.reviews };
-    const customerReview = Object.keys(reviews).find(id => {
-      return id === reviewId;
-    });
-
-    this.setState({
-      customerReview
-    });
-  };
-
-  showModalHandler = productId => {
-    const products = { ...this.state.products };
-    const clickedWatch = Object.keys(products).find(productKey => {
-      return productKey === productId;
-    });
-
-    this.setState({
-      show: true,
-      productInModal: clickedWatch
-    });
-  };
-
-  closeModalHandler = () => {
-    this.setState({
-      show: false,
-      productInModal: null
-    });
-  };
-
-  onClickModalHandler = () => {
-    this.setState({
-      show: true
-    });
-  };
-
   addToCartHandler = productId => {
     //Get watches and cart number from state
     const products = { ...this.state.products };
@@ -82,7 +39,7 @@ class ProductProvider extends Component {
     if (products[clickedWatch].inCart) return;
     else {
       cartNumber = cartNumber + 1;
-      products[clickedWatch].count += 1;
+
       products[clickedWatch].inCart = true;
       //Update cartNumber
       this.setState({
@@ -153,20 +110,30 @@ class ProductProvider extends Component {
     });
   };
 
+  onProductClickedHandler = productId => {
+    const products = { ...this.state.products };
+    const clickedProduct = Object.keys(products).find(
+      productKey => productKey === productId
+    );
+
+    this.setState({
+      product: products[clickedProduct].name
+    });
+
+    return products[clickedProduct].name;
+  };
+
   render() {
     return (
       <ProductContext.Provider
         value={{
           ...this.state,
           addToCartHandler: this.addToCartHandler,
-          showModalHandler: this.showModalHandler,
-          closeModalHandler: this.closeModalHandler,
           increaseCartCountHandler: this.increaseCartCountHandler,
           decreaseCartCountHandler: this.decreaseCartCountHandler,
           clearItemsInCartHandler: this.clearItemsInCartHandler,
           deleteIndividualItemHandler: this.deleteIndividualItemHandler,
-          onClickModalHandler: this.onClickModalHandler,
-          showCustomerReviewHandler: this.showCustomerReviewHandler
+          onProductClickedHandler: this.onProductClickedHandler
         }}
       >
         {this.props.children}

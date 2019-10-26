@@ -5,7 +5,10 @@ import {
   faShoppingCart,
   faSearch,
   faLongArrowAltDown,
-  faTrashAlt
+  faTrashAlt,
+  faCheckCircle,
+  faTimesCircle,
+  faInfoCircle
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebookF,
@@ -29,7 +32,10 @@ library.add(
   faTrashAlt,
   faShoppingCart,
   faSearch,
-  faLongArrowAltDown
+  faLongArrowAltDown,
+  faCheckCircle,
+  faTimesCircle,
+  faInfoCircle
 );
 
 const app = (

@@ -1,9 +1,18 @@
 .order {
   box-shadow: 0 0.5rem 1rem rgba($color-black, 0.5);
-  flex-basis: 25%;
+  flex-basis: 27%;
   padding: 2rem;
   margin-left: auto;
   height: 100%;
+
+  @include respond(tab-land) {
+    flex-basis: 30%;
+  }
+
+  @include respond(phone) {
+    flex-basis: 80%;
+    margin: 0 auto 3rem auto;
+  }
 
   & h2 {
     font-size: 2rem;

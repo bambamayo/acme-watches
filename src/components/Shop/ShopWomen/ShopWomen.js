@@ -1,8 +1,7 @@
 import React from "react";
 import ProductContainer from "../../ProductContainer/ProductContainer";
 import { ProductConsumer } from "../../../context";
-import ProductDetails from "../../ProductDetails/ProductDetails";
-import Modal from "../../UI/Modal/Modal";
+import { withRouter } from "react-router-dom";
 import spinner from "../../../assets/images/5.gif";
 import Spinner3 from "../../Spinner/Spinner3";
 import Img from "react-image";
@@ -10,9 +9,6 @@ import Img from "react-image";
 const ShopWomen = props => {
   return (
     <>
-      <Modal>
-        <ProductDetails />
-      </Modal>
       <section className="shop">
         <h2>Shop Women</h2>
 
@@ -59,15 +55,15 @@ const ShopWomen = props => {
                         src={details.imageUrl}
                         alt={details.name}
                         className="shop-items-image"
-                        onClick={() => consumer.showModalHandler(productKey)}
+                        onClick={() =>
+                          props.history.push(
+                            `/shop/product/${consumer.onProductClickedHandler(
+                              productKey
+                            )}`
+                          )
+                        }
                         loader={<Spinner3 />}
                       />
-                      {/* <img
-                        src={details.imageUrl}
-                        alt={details.name}
-                        className="shop-items-image"
-                        onClick={() => consumer.showModalHandler(productKey)}
-                      /> */}
                       <button
                         className="shop-items-addtocart"
                         onClick={() => consumer.addToCartHandler(productKey)}
@@ -87,4 +83,4 @@ const ShopWomen = props => {
   );
 };
 
-export default ShopWomen;
+export default withRouter(ShopWomen);
