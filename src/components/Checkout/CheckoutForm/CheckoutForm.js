@@ -9,7 +9,7 @@ class CheckoutForm extends Component {
   state = {
     loading: false,
     error: null,
-    showAlert: true
+    showAlert: false
   };
 
   nameRef = React.createRef();
