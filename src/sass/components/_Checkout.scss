@@ -109,6 +109,17 @@
     transition: 0.2s all;
     border-radius: 0.5rem;
 
+    &:not(:first-child) {
+      @include respond(phone) {
+        margin-top: 1rem;
+      }
+    }
+
+    @include respond(phone) {
+      display: inline-block;
+      width: 70%;
+    }
+
     &:hover,
     &:focus {
       transform: translateY(-0.2rem);

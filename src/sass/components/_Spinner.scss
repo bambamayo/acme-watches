@@ -44,14 +44,14 @@
   &__image {
     width: 7rem;
     height: 7rem;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
 
     @include respond(phone) {
       width: 4rem;
       height: 4rem;
     }
-    position: absolute;
-    transform: translate(-50%, -50%);
-    top: 50%;
-    left: 50%;
   }
 }
