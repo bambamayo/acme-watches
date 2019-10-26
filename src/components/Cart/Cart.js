@@ -141,10 +141,29 @@ const Cart = props => {
                       <button onClick={consumer.clearItemsInCartHandler}>
                         Clear cart <Icon type="trash-alt" />
                       </button>
-
-                      <button onClick={() => props.history.push("/checkout")}>
-                        Proceed to checkout
-                      </button>
+                      <ProductConsumer>
+                        {consumer => {
+                          let totalSum = Object.keys(consumer.products)
+                            .filter(productKey => {
+                              return consumer.products[productKey].count > 0;
+                            })
+                            .map(productKey => {
+                              let details = consumer.products[productKey];
+                              return details.count * details.price;
+                            })
+                            .reduce((prev, current) => {
+                              return prev + current;
+                            }, 0);
+                          return (
+                            <button
+                              disabled={totalSum === 0}
+                              onClick={() => props.history.push("/checkout")}
+                            >
+                              Proceed to checkout
+                            </button>
+                          );
+                        }}
+                      </ProductConsumer>
                     </div>
                   </div>
                 </div>
