@@ -150,27 +150,29 @@ class CheckoutForm extends Component {
               required
             />
           </div>
-          <ProductConsumer>
-            {consumer => {
-              return (
-                <button
-                  className="form-button"
-                  onClick={error && consumer.clearItemsInCartHandler}
-                  style={{ backgroundColor: "green" }}
-                >
-                  Proceed to pay &rarr;
-                </button>
-              );
-            }}
-          </ProductConsumer>
+          <div className="form-button-container">
+            <ProductConsumer>
+              {consumer => {
+                return (
+                  <button
+                    className="form-button"
+                    onClick={error && consumer.clearItemsInCartHandler}
+                    style={{ backgroundColor: "green" }}
+                  >
+                    Proceed to pay &rarr;
+                  </button>
+                );
+              }}
+            </ProductConsumer>
 
-          <button
-            className="form-button"
-            onClick={() => this.props.history.goBack()}
-            style={{ backgroundColor: "black" }}
-          >
-            return to cart &larr;
-          </button>
+            <button
+              className="form-button"
+              onClick={() => this.props.history.goBack()}
+              style={{ backgroundColor: "black" }}
+            >
+              return to cart &larr;
+            </button>
+          </div>
           {error && (
             <p className="form-error-msg">
               <Icon type="times-circle" /> Cannot complete order because {error}
