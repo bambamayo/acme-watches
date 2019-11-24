@@ -108,7 +108,6 @@
   &-button-container {
     @include respond(phone) {
       width: 98%;
-
       display: flex;
     }
   }

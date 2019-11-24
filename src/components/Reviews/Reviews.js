@@ -38,7 +38,7 @@ class Reviews extends Component {
       const displayedReview = Object.keys(reviews).find(id => {
         return id === reviewId;
       });
-      console.log(this.state.displayedReview);
+    
       this.setState({
         displayedReview: { ...reviews[displayedReview] }
       });
