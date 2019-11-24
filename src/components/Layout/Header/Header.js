@@ -37,6 +37,30 @@ class Header extends Component {
             <ProductConsumer>
               {consumer => {
                 return (
+                  <li className="navList-item navList-item--relative">
+                    <NavLink
+                      className="navList-item-link"
+                      activeClassName="navList-item-link--active"
+                      to="/cart"
+                    >
+                      <span className="cart-icon">
+                        <Icon type="shopping-cart" />
+                      </span>
+                      <span className="cart-number-cont"></span>
+                      <span
+                        className={consumer.cartNumber === 0 ? "hide" : "show"}
+                      >
+                        {consumer.cartNumber}
+                      </span>
+                    </NavLink>
+                  </li>
+                );
+              }}
+            </ProductConsumer>
+
+            {/* <ProductConsumer>
+              {consumer => {
+                return (
                   <li className="navList-item">
                     <NavLink
                       className="navList-item-link"
@@ -54,7 +78,7 @@ class Header extends Component {
                   </li>
                 );
               }}
-            </ProductConsumer>
+            </ProductConsumer> */}
           </ul>
         </nav>
       </header>
