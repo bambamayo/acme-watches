@@ -48,7 +48,8 @@ class Header extends Component {
                       </span>
                       <span className="cart-number-cont"></span>
                       <span
-                        className={consumer.cartNumber === 0 ? "hide" : "show"}
+                        // className={consumer.cartNumber === 0 ? "hide" : "show"}
+                        className="show"
                       >
                         {consumer.cartNumber}
                       </span>

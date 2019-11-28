@@ -64,15 +64,12 @@ const Cart = props => {
                                   alt={details.name}
                                   className="cart__list-ul-item-image"
                                 />
-                                {/* <img
-                                  src={details.imageUrl}
-                                  alt={details.name}
-                                  className="cart__list-ul-item-image"
-                                /> */}
+
                                 <span>{details.name}</span>
                                 <span className="cart__list-ul-item-amount">
                                   <button
                                     disabled={
+                                      
                                       consumer.products[productKey].count === 1
                                     }
                                     onClick={() =>
