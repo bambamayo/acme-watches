@@ -69,7 +69,6 @@ const Cart = props => {
                                 <span className="cart__list-ul-item-amount">
                                   <button
                                     disabled={
-                                      
                                       consumer.products[productKey].count === 1
                                     }
                                     onClick={() =>
@@ -127,6 +126,7 @@ const Cart = props => {
                                 return details.count * details.price;
                               })
                               .reduce((prev, current) => {
+                                console.log(current + prev);
                                 return prev + current;
                               }, 0);
                             return totalSum;
