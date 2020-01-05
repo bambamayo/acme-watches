@@ -41,6 +41,7 @@ class ProductProvider extends Component {
       cartNumber = cartNumber + 1;
 
       products[clickedWatch].inCart = true;
+      products[clickedWatch].count += 1;
       //Update cartNumber
       this.setState({
         products,
