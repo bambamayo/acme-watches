@@ -1,37 +1,25 @@
-import React, { Component } from "react";
+import React, { useContext } from "react";
 import OrderSummary from "../OrderSummary/OrderSummary";
 import CheckoutForm from "./CheckoutForm/CheckoutForm";
-import { ProductConsumer } from "../../context";
+import { ProductContext } from "../../context/product-context";
 
-class Checkout extends Component {
-  render() {
-    return (
-      <section className="checkout">
-        <div className="checkout__container">
-          <div className="checkout__form">
-            <h2>Please fill in your delivery details</h2>
-
-            <ProductConsumer>
-              {consumer => {
-                return (
-                  <CheckoutForm
-                    products={consumer.products}
-                    cartNumber={consumer.cartNumber}
-                    clearItemsInCartHandler={consumer.clearItemsInCartHandler}
-                  />
-                );
-              }}
-            </ProductConsumer>
-          </div>
-          <ProductConsumer>
-            {consumer => {
-              return <OrderSummary products={consumer.products} />;
-            }}
-          </ProductConsumer>
+const Checkout = () => {
+  const productContext = useContext(ProductContext);
+  return (
+    <section className="checkout">
+      <div className="checkout__container">
+        <div className="checkout__form">
+          <h2>Please fill in your delivery details</h2>
+          <CheckoutForm
+            products={productContext.products}
+            cartNumber={productContext.cartNumber}
+            clearItemsInCartHandler={productContext.clearItemsInCartHandler}
+          />
         </div>
-      </section>
-    );
-  }
-}
+        <OrderSummary products={productContext.products} />
+      </div>
+    </section>
+  );
+};
 
 export default Checkout;

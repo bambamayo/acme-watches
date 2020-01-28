@@ -19,9 +19,9 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import App from "./containers/App";
-import { ProductProvider } from "./context";
 import "./sass/main.scss";
 import ScrollToTop from "./containers/ScrollToTop";
+import ProductContextProvider from "./context/product-context";
 
 library.add(
   faFacebookF,
@@ -39,13 +39,13 @@ library.add(
 );
 
 const app = (
-  <ProductProvider>
+  <ProductContextProvider>
     <BrowserRouter>
       <ScrollToTop>
         <App />
       </ScrollToTop>
     </BrowserRouter>
-  </ProductProvider>
+  </ProductContextProvider>
 );
 
 ReactDOM.render(app, document.getElementById("root"));
