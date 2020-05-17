@@ -103,7 +103,7 @@ const CheckoutForm = props => {
             type="text"
             name="name"
             value={fields.name}
-            placeholder="Ayobami Gabriel"
+            placeholder="your name"
             onChange={inputChangedHandler}
             required
           />
@@ -114,7 +114,7 @@ const CheckoutForm = props => {
             type="email"
             name="email"
             value={fields.email}
-            placeholder="john@example.com"
+            placeholder="your email"
             onChange={inputChangedHandler}
             required
           />
@@ -125,7 +125,7 @@ const CheckoutForm = props => {
             type="text"
             name="telephone"
             value={fields.telephone}
-            placeholder="+2348074556677"
+            placeholder="your phone number"
             onChange={inputChangedHandler}
             required
           />
@@ -136,7 +136,7 @@ const CheckoutForm = props => {
             type="text"
             name="address"
             value={fields.address}
-            placeholder="20 shotinoye street"
+            placeholder="your address"
             onChange={inputChangedHandler}
             required
           />
@@ -147,7 +147,7 @@ const CheckoutForm = props => {
             type="text"
             name="address2"
             value={fields.address2}
-            placeholder="20 harvey road"
+          
             onChange={inputChangedHandler}
           />
         </div>
@@ -157,7 +157,7 @@ const CheckoutForm = props => {
             type="text"
             name="city"
             value={fields.city}
-            placeholder="Mushin"
+            placeholder="your city"
             onChange={inputChangedHandler}
             required
           />
@@ -168,7 +168,7 @@ const CheckoutForm = props => {
             type="text"
             name="state"
             value={fields.state}
-            placeholder="Lagos"
+            placeholder="your state"
             onChange={inputChangedHandler}
             required
           />
